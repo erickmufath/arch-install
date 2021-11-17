@@ -1,6 +1,6 @@
-echo "----------------------------------------------------------------------"
-echo "       Setup Language to US, set locale, set hostname and hosts       "
-echo "----------------------------------------------------------------------"
+echo "--------------------------------------------------------"
+echo "       Setup Bahasa, lokal, hostname dan host           "
+echo "--------------------------------------------------------"
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 timedatectl --no-ask-password set-timezone Asia/Jakarta
@@ -21,8 +21,8 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 pacman -Sy --noconfirm
 
 sed -i 'lynx' /etc/hostname
-sed -i '127.0.0.1 localhost'
-sed -i '::1 localhost'
-sed -i '127.0.1.1 lynx.localhost lynx'
+sed -i '127.0.0.1 localhost' /etc/hosts
+sed -i '::1 localhost' /etc/hosts
+sed -i '127.0.1.1 lynx.localhost lynx' /etc/hosts
 
 pacman -S networkmanager network-manager-applet linux-headers bluez cups xdg-utils xdg-user-dirs
