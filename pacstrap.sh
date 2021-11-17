@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+echo -e " --------------------------------------------------------------------"
+echo -e "  █▀█ ▄▀█ █▀▀ █▀ ▀█▀ █▀█ ▄▀█ █▀█   ▄▀█ █▀█ █▀▀ █░█ █░░ █ █▄░█ █░█ ▀▄▀"
+echo -e "  █▀▀ █▀█ █▄▄ ▄█ ░█░ █▀▄ █▀█ █▀▀   █▀█ █▀▄ █▄▄ █▀█ █▄▄ █ █░▀█ █▄█ █░█"
+echo -e "  Also Configure fstab config "
+echo -e " --------------------------------------------------------------------"
+read -p "Pastikan anda telah melakukan partisi terlebih dahulu, ketik y jika sudah (Y/N):" partitied
+case $partitied in
+
+y|Y|yes|Yes|YES)
+echo "--------------------------------------"
+echo -e "\nPacstrap Dimulai...\n$HR"
+echo "--------------------------------------"
+#script
+pacstrap /mnt base base-devel linux linux-firmware nano sudo archlinux-keyring wget libnewt intel-ucode ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
+genfstab -U /mnt >> /mnt/etc/fstab
