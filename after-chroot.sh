@@ -25,4 +25,5 @@ sed -i '127.0.0.1 localhost' /etc/hosts
 sed -i '::1 localhost' /etc/hosts
 sed -i '127.0.1.1 lynx.localhost lynx' /etc/hosts
 
-pacman -S networkmanager network-manager-applet linux-headers bluez cups xdg-utils xdg-user-dirs
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd 
+pacman -Sy grub networkmanager network-manager-applet linux-headers bluez cups xdg-utils xdg-user-dirs
