@@ -25,3 +25,4 @@ sed -i '127.0.0.1 localhost'
 sed -i '::1 localhost'
 sed -i '127.0.1.1 lynx.localhost lynx'
 
+pacman -S networkmanager network-manager-applet linux-headers bluez cups xdg-utils xdg-user-dirs
