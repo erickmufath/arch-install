@@ -4,10 +4,6 @@ echo -e "  █▀█ ▄▀█ █▀▀ █▀ ▀█▀ █▀█ 
 echo -e "  █▀▀ █▀█ █▄▄ ▄█ ░█░ █▀▄ █▀█ █▀▀   █▀█ █▀▄ █▄▄ █▀█ █▄▄ █ █░▀█ █▄█ █░█"
 echo -e "  Also Configure fstab config "
 echo -e " --------------------------------------------------------------------"
-read -p "Pastikan anda telah melakukan partisi terlebih dahulu, ketik y jika sudah (Y/N):" partitied
-case $partitied in
-
-y|Y|yes|Yes|YES)
 echo "--------------------------------------"
 echo -e "\nPacstrap Dimulai...\n$HR"
 echo "--------------------------------------"
