@@ -26,4 +26,4 @@ sed -i '::1 localhost' /etc/hosts
 sed -i '127.0.1.1 lynx.localhost lynx' /etc/hosts
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd 
-yay -Sy grub networkmanager network-manager-applet linux-headers bluez cups xdg-utils xdg-user-dirs exfatprogs
+yay -Sy --no-ask-password grub networkmanager network-manager-applet linux-headers bluez cups xdg-utils xdg-user-dirs exfatprogs
