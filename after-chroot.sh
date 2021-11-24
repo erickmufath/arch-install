@@ -20,10 +20,10 @@ sed -i 's/^#Para/Para/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 pacman -Sy --noconfirm
 
-sed -i 'lynx' /etc/hostname
+sed -i 'pc' /etc/hostname
 sed -i '127.0.0.1 localhost' /etc/hosts
 sed -i '::1 localhost' /etc/hosts
-sed -i '127.0.1.1 lynx.localhost lynx' /etc/hosts
+sed -i '127.0.1.1 pc.localhost pc' /etc/hosts
 
 git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd 
 yay -Sy --no-ask-password grub networkmanager network-manager-applet linux-headers bluez cups xdg-utils xdg-user-dirs exfatprogs
