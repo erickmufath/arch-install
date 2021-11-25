@@ -1,0 +1,10 @@
+1. Partisi terlebih dahulu drive root
+2. Jalankan pacstrap.sh
+3. Jalankan after-chroot.sh setelah enter arch-chroot
+4. Setting /etc/hosts
+5. Setting /etc/hostname
+6. Install grub dan konfigurasikan
+6. Setting root password
+7. Menambah user dan user password
+8. Jalankan install-pkg.sh
+9. Jalankan enable-service.sh [root]
