@@ -14,6 +14,9 @@ localectl --no-ask-password set-keymap us
 # Add sudo no password rights
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
 
+# Add sudo rights
+sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+
 #Add parallel downloading
 sed -i 's/^#Para/Para/' /etc/pacman.conf
 
