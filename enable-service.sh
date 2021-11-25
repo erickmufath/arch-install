@@ -1,5 +1,11 @@
-systemctl enable cups
+echo -e "\nEnabling Login Display Manager"
 systemctl enable sddm.service
+echo -e "\nSetup SDDM Theme"
+cat <<EOF > /etc/sddm.conf
+[Theme]
+Current=Nordic
+EOF
+systemctl enable cups
 systemctl enable ntpd.service
 systemctl disable dhcpcd.service
 systemctl stop dhcpcd.service
