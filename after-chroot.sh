@@ -1,6 +1,7 @@
 echo "--------------------------------------------------------"
-echo "       Setup Bahasa, lokal, hostname dan host           "
+echo "                  Setup Bahasa & lokal                  "
 echo "--------------------------------------------------------"
+echo "-----Setelah ini setting hosts dan hostname manual------"
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 timedatectl --no-ask-password set-timezone Asia/Jakarta
