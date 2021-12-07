@@ -28,4 +28,4 @@ sed -i 's/^#Para/Para/' /etc/pacman.conf
 
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-pacman -Sy --noconfirm
+pacman -Syu --noconfirm
