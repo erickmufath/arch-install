@@ -37,3 +37,7 @@ echo "Masukan User Password : "
 useradd -mG wheel lynx
 passwd lynx
 echo "Saatnya Reboot"
+echo "Ketikan exit <enter>"
+echo "Ketikan umount -R /mnt <enter>"
+echo "Ketikan reboot <enter>"
+echo "Setelah reboot lanjut step 4"
