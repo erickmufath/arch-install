@@ -37,8 +37,11 @@ passwd
 echo "Masukan User Password "
 useradd -mG wheel lynx
 passwd lynx
-echo "Saatnya Reboot"
-echo "Ketikan exit <enter>"
-echo "Ketikan umount -R /mnt <enter>"
-echo "Ketikan reboot <enter>"
-echo "Setelah reboot lanjut step 3"
+echo "--------------------------------------------------------"
+echo "                  Saatnya Reboot"
+echo "--------------------------------------------------------"
+echo "        1.Ketikan exit <enter>"
+echo "        2.Ketikan umount -R /mnt <enter>"
+echo "        3.Ketikan reboot <enter>"
+echo "        Setelah reboot lanjut step 3"
+rm -rf arch-install
