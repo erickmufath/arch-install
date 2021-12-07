@@ -10,3 +10,4 @@ echo "--------------------------------------"
 #script
 pacstrap /mnt base base-devel linux linux-firmware linux-headers nano sudo archlinux-keyring wget libnewt intel-ucode ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
