@@ -31,9 +31,9 @@ pacman -Syu --noconfirm
 
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-echo "Masukan Root Password : "
+echo "Masukan Root Password "
 passwd
-echo "Masukan User Password : "
+echo "Masukan User Password "
 useradd -mG wheel lynx
 passwd lynx
 echo "Saatnya Reboot"
