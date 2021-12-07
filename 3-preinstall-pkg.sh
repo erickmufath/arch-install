@@ -11,10 +11,10 @@ localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TIME="en_GB.UTF-8"
 localectl --no-ask-password set-keymap us
 
 # Set hostname & hosts
-echo "lynx" >> /etc/hostname
+echo "pc" >> /etc/hostname
 echo "127.0.0.1	localhost" >> /etc/hosts
 echo "::1	localhost" >> /etc/hosts
-echo "127.0.1.1	lynx.localdomain	lynx" >> /etc/hosts
+echo "127.0.1.1	pc.localdomain	pc" >> /etc/hosts
 
 # Add sudo no password rights
 sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
