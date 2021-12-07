@@ -37,7 +37,3 @@ echo "Masukan User Password : "
 useradd -mG wheel lynx
 passwd lynx
 echo "Saatnya Reboot"
-echo "\nJalankan : "
-echo "\n1. umount -R /mnt"
-echo "\n2. reboot"
-exit
