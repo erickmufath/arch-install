@@ -8,3 +8,4 @@ chmod +x arch-install/1-pacstrap.sh
 chmod +x arch-install/setup2.sh
 cp -rf arch-install /mnt
 sh arch-install/1-pacstrap.sh
+echo "--------Setup Pertama Selesai--------"
