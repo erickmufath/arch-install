@@ -7,4 +7,4 @@ yay -S dxvk-bin
 yay -S aic94xx-firmware
 yay -S wd719x-firmware
 yay -S upd72020x-fw
-yay -S nerd-fonts-complete
+yay -S nerd-fonts-source-code-pro
