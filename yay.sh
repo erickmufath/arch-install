@@ -1,0 +1,10 @@
+yay -S rar
+yay -S sndcpy
+yay -S ventoy-bin
+yay -S sddm-nordic-theme-git
+yay -S pipewire-jack-replacement
+yay -S dxvk-bin
+yay -S aic94xx-firmware
+yay -S wd719x-firmware
+yay -S upd72020x-fw
+yay -S nerd-fonts-complete
