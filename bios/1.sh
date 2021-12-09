@@ -25,14 +25,15 @@ echo -e "==================================================="
 echo    "=           Menginstall Base System...            ="
 echo -e "==================================================="
 #script
-pacstrap /mnt base base-devel linux linux-firmware linux-headers nano sudo archlinux-keyring wget git libnewt intel-ucode ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
-genfstab -U /mnt >> /mnt/etc/fstab
 
 pacman -Sy sed --noconfirm --needed
 #Add parallel downloading
 sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+
+pacstrap /mnt base base-devel linux linux-firmware linux-headers nano sudo archlinux-keyring wget git libnewt intel-ucode ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
+genfstab -U /mnt >> /mnt/etc/fstab
 
 echo "--------------------------------------------------------"
 echo "           Setup Bahasa, lokal, Hostname & Hosts        "
