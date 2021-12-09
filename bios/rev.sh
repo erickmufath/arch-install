@@ -25,7 +25,6 @@ lsblk
 read -p "Apa Drive dan Konfigurasi Partisi Anda Sudah Benar (y/N):" conprts
 case $conprts in
 y|Y|yes|Yes|YES)
-;;
 lsblk
 read -p "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
