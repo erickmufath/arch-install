@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+clear
 echo -e "==================================================="
 echo    "=         Selamat Datang Di Scipt Saya            ="
 echo    "=     Hati-hati ketika menggunakan script         ="
