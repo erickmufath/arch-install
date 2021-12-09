@@ -27,7 +27,7 @@ echo    "=           Menginstall Base System...            ="
 echo -e "==================================================="
 #script
 
-pacman -Sy sed packagekit-qt5 dbus --noconfirm --needed
+pacman -Sy sed --noconfirm --needed
 #Add parallel downloading
 sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
