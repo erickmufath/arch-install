@@ -9,11 +9,9 @@ echo -e "==================================================="
 echo    "=  Catatan : Drive hanya akan dipartisi menjadi 1 ="
 echo    "=      untuk system, penyimpanan, dan home        ="
 echo -e "==================================================="
-konfirmasi(){
-read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
+read -p "Apa kamu yakin untuk menggunakan script ini (y):" cnfrm
 case $cnfrm in
 y|Y|yes|Yes|YES)
-pilihdrive(){
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
@@ -91,7 +89,6 @@ arch-chroot /mnt yay -S aic94xx-firmware
 arch-chroot /mnt yay -S wd719x-firmware
 arch-chroot /mnt yay -S upd72020x-fw
 arch-chroot /mnt yay -S nerd-fonts-source-code-pro
-sig(){
 echo    "Jika gpg/signature tidak error ketik y atau yes:" gpgsig
 case $gpgsig in
 y|Y|yes|Yes|YES)
@@ -134,7 +131,7 @@ arch-chroot /mnt pacman -Syu --needed && sudo pacman-key --refresh-keys --needed
 sig
 ;;
 esac
-}
+
 ;;
 *)
 echo -e "==================================================="
@@ -145,7 +142,7 @@ clear
 pilihdrive
 ;;
 esac
-}
+
 ;;
 *)
 echo -e "==================================================="
@@ -156,4 +153,4 @@ clear
 konfirmasi
 ;;
 esac
-}
+
