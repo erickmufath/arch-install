@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+pacman -S --noconfirm pacman-contrib curl
+pacman -S --noconfirm reflector rsync
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 clear
 echo -e "==================================================="
 echo    "=         Selamat Datang Di Scipt Saya            ="
