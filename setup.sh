@@ -20,4 +20,4 @@ sh arch-install/1.sh
 sh arch-install/hybrid.sh
 ;;
 esac
-cp -rf arch-install /mnt
+cp -rf arch-install /mnt/home/${usrname}/
