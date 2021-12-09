@@ -1,4 +1,4 @@
-arch-chroot /mnt grub-install --target=i386-pc /dev/sda
+arch-chroot /mnt grub-install --target=i386-pc /dev/${drive}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "->] Masukkan Root Password "
 arch-chroot /mnt passwd
