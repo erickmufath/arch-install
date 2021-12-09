@@ -71,10 +71,11 @@ arch-chroot /mnt localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TI
 arch-chroot /mnt localectl --no-ask-password set-keymap us
 
 # Set hostname & hosts
-arch-chroot /mnt echo "pc" >> /etc/hostname
+read -p "Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " hstname
+arch-chroot /mnt echo ${hstname} >> /etc/hostname
 arch-chroot /mnt echo "127.0.0.1	localhost" >> /etc/hosts
 arch-chroot /mnt echo "::1	localhost" >> /etc/hosts
-arch-chroot /mnt echo "127.0.1.1	pc.localdomain	pc" >> /etc/hosts
+arch-chroot /mnt echo "127.0.1.1	${hstname}.localdomain	${hstname}" >> /etc/hosts
 
 # Add sudo no password rights
 arch-chroot /mnt sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
@@ -88,37 +89,37 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 arch-chroot /mnt pacman -Syu --noconfirm
-arch-chroot /mnt sudo pacman -Sy grub os-prober ntp networkmanager network-manager-applet linux-headers bluez ttf-caladea ttf-carlito ttf-dejavu cups xdg-utils xdg-user-dirs exfatprogs linux intel-ucode rar unzip ark xorg xf86-video-intel sddm plasma xfce4-terminal nautilus scrcpy mpv elisa awesome-terminal-fonts nerd-fonts-source-code-pro ttf-hellvecita ttf-anonymous-pro ttf-bitstream-vera ttf-caladea ttf-carlito ttf-cascadia-code ttf-cormorant ttf-croscore ttf-eurof ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-font-awesome ttf-ibm-plex ttf-inconsolata ttf-jetbrains-mono ttf-joypixels ttf-liberation ttf-linux-libertine ttf-linux-libertine-g ttf-meslo-nerd-font-powerlevel10k ttf-monofur ttf-nerd-fonts-symbols ttf-opensans ttf-proggy-clean opera chromium adapta-gtk-theme materia-gtk-theme breeze materia-kde ventoy-bin sddm-nordic-theme-git gst-plugin-pipewire libpipewire02 pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-zeroconf wireplumber lib32-pipewire lib32-pipewire-jack pipewire-jack-replacement alsa-utils dxvk-bin dhcpcd aic94xx-firmware wd719x-firmware upd72020x-fw kdenlive obs-studio audacity easyeffects --needed
-arch-chroot /mnt sudo pacman -Rnsc pulseaudio pulseaudio-alsa discover jack jack2
-arch-chroot /mnt sudo pacman -Syyu
+arch-chroot /mnt pacman -Sy grub os-prober ntp networkmanager network-manager-applet linux-headers bluez ttf-caladea ttf-carlito ttf-dejavu cups xdg-utils xdg-user-dirs exfatprogs linux intel-ucode rar unzip ark xorg xf86-video-intel sddm plasma xfce4-terminal nautilus scrcpy mpv elisa awesome-terminal-fonts nerd-fonts-source-code-pro ttf-hellvecita ttf-anonymous-pro ttf-bitstream-vera ttf-caladea ttf-carlito ttf-cascadia-code ttf-cormorant ttf-croscore ttf-eurof ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-font-awesome ttf-ibm-plex ttf-inconsolata ttf-jetbrains-mono ttf-joypixels ttf-liberation ttf-linux-libertine ttf-linux-libertine-g ttf-meslo-nerd-font-powerlevel10k ttf-monofur ttf-nerd-fonts-symbols ttf-opensans ttf-proggy-clean opera chromium adapta-gtk-theme materia-gtk-theme breeze materia-kde ventoy-bin sddm-nordic-theme-git gst-plugin-pipewire libpipewire02 pipewire pipewire-alsa pipewire-jack pipewire-pulse pipewire-zeroconf wireplumber lib32-pipewire lib32-pipewire-jack pipewire-jack-replacement alsa-utils dxvk-bin dhcpcd aic94xx-firmware wd719x-firmware upd72020x-fw kdenlive obs-studio audacity easyeffects --needed
+arch-chroot /mnt pacman -Rnsc pulseaudio pulseaudio-alsa discover jack jack2
+arch-chroot /mnt pacman -Syyu
 
 arch-chroot /mnt git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd ..
 
-yay -S rar
-yay -S sndcpy
-yay -S ventoy-bin
-yay -S sddm-nordic-theme-git
-yay -S pipewire-jack-replacement
-yay -S dxvk-bin
-yay -S aic94xx-firmware
-yay -S wd719x-firmware
-yay -S upd72020x-fw
-yay -S nerd-fonts-source-code-pro
+arch-chroot /mnt yay -S rar
+arch-chroot /mnt yay -S sndcpy
+arch-chroot /mnt yay -S ventoy-bin
+arch-chroot /mnt yay -S sddm-nordic-theme-git
+arch-chroot /mnt yay -S pipewire-jack-replacement
+arch-chroot /mnt yay -S dxvk-bin
+arch-chroot /mnt yay -S aic94xx-firmware
+arch-chroot /mnt yay -S wd719x-firmware
+arch-chroot /mnt yay -S upd72020x-fw
+arch-chroot /mnt yay -S nerd-fonts-source-code-pro
 
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
-sudo systemctl enable sddm.service
+arch-chroot /mnt systemctl enable sddm.service
 echo -e "\nSetup SDDM Theme"
-sudo cat <<EOF > /etc/sddm.conf
+arch-chroot /mnt cat <<EOF > /etc/sddm.conf
 [Theme]
 Current=Nordic
 EOF
-sudo systemctl enable cups
-sudo systemctl enable ntpd.service
-sudo systemctl disable dhcpcd.service
-sudo systemctl stop dhcpcd.service
-sudo systemctl enable NetworkManager.service
-sudo systemctl enable bluetooth
+arch-chroot /mnt systemctl enable cups
+arch-chroot /mnt systemctl enable ntpd.service
+arch-chroot /mnt systemctl disable dhcpcd.service
+arch-chroot /mnt systemctl stop dhcpcd.service
+arch-chroot /mnt systemctl enable NetworkManager.service
+arch-chroot /mnt systemctl enable bluetooth
 echo    "--------------------------------------------------------"
 
 arch-chroot /mnt grub-install --target=i386-pc /dev/sda
