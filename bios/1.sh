@@ -96,7 +96,7 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "Masukkan Root Password "
 arch-chroot /mnt passwd
 read -p "Masukkan Username :" usrname
-echo "Masukan User Password "
+echo "Masukkan User Password "
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 echo "--------------------------------------------------------"
