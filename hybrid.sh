@@ -1,4 +1,3 @@
-pacman -Sy efibootmgr --noconfirm
 grub-install --target=i386-pc --boot-directory=/mnt/boot /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot --removable --recheck
 grub-mkconfig -o /mnt/boot/grub/grub.cfg
