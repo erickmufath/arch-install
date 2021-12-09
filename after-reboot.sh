@@ -9,6 +9,10 @@ yay -S aic94xx-firmware
 yay -S wd719x-firmware
 yay -S upd72020x-fw
 yay -S nerd-fonts-source-code-pro
+yay -S liba52
+yay -S mad
+yay -S musepack
+yay -S vorbis
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
 sudo systemctl enable sddm.service
