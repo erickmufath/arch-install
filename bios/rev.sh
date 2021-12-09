@@ -127,19 +127,13 @@ rm -rf arch-install
 umount -R /mnt
 reboot
 ;;
-;;
-;;
-
-
-
 *)
 clear
 arch-chroot /mnt pacman -Syu --needed && sudo pacman-key --refresh-keys --needed && sudo gpg --refresh-keys --need
 sig
 esac
 }
-
-
+;;
 *)
 echo -e "==================================================="
 echo    "=     Memulai Ulang Pemilihan Drive & Partisi     ="
@@ -150,8 +144,7 @@ pilihdrive
 ;;
 esac
 }
-
-
+;;
 *)
 echo -e "==================================================="
 echo    "=  Masukkan Tidak Valid/Anda Menolak Melanjutkan  ="
