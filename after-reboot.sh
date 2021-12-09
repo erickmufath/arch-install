@@ -1,3 +1,5 @@
+sudo pacman -Sy grub os-prober ntp networkmanager network-manager-applet system-config-printer linux-headers bluez ttf-caladea ttf-carlito ttf-dejavu cups xdg-utils xdg-user-dirs exfatprogs linux intel-ucode unzip ark xorg xf86-video-intel sddm plasma xfce4-terminal nautilus scrcpy mpv elisa awesome-terminal-fonts ttf-anonymous-pro ttf-bitstream-vera ttf-caladea ttf-carlito ttf-cascadia-code ttf-cormorant ttf-croscore ttf-eurof ttf-fira-code ttf-fira-mono ttf-fira-sans ttf-font-awesome ttf-ibm-plex ttf-inconsolata ttf-jetbrains-mono ttf-joypixels ttf-liberation ttf-linux-libertine ttf-linux-libertine-g ttf-monofur ttf-nerd-fonts-symbols ttf-opensans ttf-proggy-clean opera chromium adapta-gtk-theme materia-gtk-theme breeze materia-kde alsa-utils dhcpcd kdenlive obs-studio audacity celt lame libdca opencore-amr opus speex easyeffects --noconfirm --needed
+sudo pacman -Syyu --noconfirm
 git clone https://aur.archlinux.org/yay.git
 yay -S rar --needed
 yay -S sndcpy --needed
