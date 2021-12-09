@@ -1,3 +1,4 @@
+arch-chroot /mnt pacman -Sy efibootmgr
 grub-install --target=i386-pc --boot-directory=/boot /dev/sda
 grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot --removable --recheck
 pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa
