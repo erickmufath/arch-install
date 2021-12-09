@@ -58,6 +58,12 @@ echo -e "==================================================="
 pacstrap /mnt base base-devel linux linux-firmware linux-headers nano sudo archlinux-keyring wget git libnewt intel-ucode ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
 
+pacman -Sy sed --noconfirm --needed
+#Add parallel downloading
+sed -i 's/^#Para/Para/' /etc/pacman.conf
+#Enable multilib
+sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+
 echo "--------------------------------------------------------"
 echo "           Setup Bahasa, lokal, Hostname & Hosts        "
 echo "--------------------------------------------------------"
@@ -76,6 +82,7 @@ arch-chroot /mnt echo ${hstname} >> /etc/hostname
 arch-chroot /mnt echo "127.0.0.1	localhost" >> /etc/hosts
 arch-chroot /mnt echo "::1	localhost" >> /etc/hosts
 arch-chroot /mnt echo "127.0.1.1	${hstname}.localdomain	${hstname}" >> /etc/hosts
+arch-chroot /mnt pacman -Sy sed --noconfirm
 
 # Add sudo no password rights
 arch-chroot /mnt sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
@@ -105,7 +112,16 @@ arch-chroot /mnt yay -S aic94xx-firmware
 arch-chroot /mnt yay -S wd719x-firmware
 arch-chroot /mnt yay -S upd72020x-fw
 arch-chroot /mnt yay -S nerd-fonts-source-code-pro
-
+sig (){
+echo    "Apakah gpg/pkg signature error? Jika ya ini akan memakan waktu lama (y/N):" gpgsig
+case $gpgsig in
+y|Y|yes|Yes|YES)
+;;
+*)
+clear
+sig
+esac
+}
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
 arch-chroot /mnt systemctl enable sddm.service
