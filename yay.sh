@@ -24,3 +24,16 @@ sudo systemctl stop dhcpcd.service
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth
 echo    "--------------------------------------------------------"
+echo    "--------------------------------------------------------"
+echo    "=] 1. Pulseaudio [Default Kebanyakan Distro]"
+echo    "=] 2. Pipewire [Audio Controller Modern]"
+echo    "--------------------------------------------------------"
+read -p "->] Pilih Audio Controller (1/2) : " audioc
+case $audioc in
+1)
+sh pulseaudio.sh
+;;
+2)
+sh pipewire.sh
+;;
+esac
