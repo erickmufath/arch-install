@@ -9,7 +9,6 @@ echo -e "==================================================="
 echo    "=  Catatan : Drive hanya akan dipartisi menjadi 1 ="
 echo    "=      untuk system, penyimpanan, dan home        ="
 echo -e "==================================================="
-konfirmasi ()
 read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
 case $cnfrm in
 y|Y|yes|Yes|YES)
@@ -22,7 +21,7 @@ sleep 2
 clear
 ;;
 esac
-pilihdrive ()
+pilihdrive:
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
@@ -109,7 +108,7 @@ arch-chroot /mnt yay -S aic94xx-firmware
 arch-chroot /mnt yay -S wd719x-firmware
 arch-chroot /mnt yay -S upd72020x-fw
 arch-chroot /mnt yay -S nerd-fonts-source-code-pro
-sig ()
+sig:
 echo    "Apakah gpg/pkg signature error? Jika ya ini akan memakan waktu lama (y/N):" gpgsig
 case $gpgsig in
 y|Y|yes|Yes|YES)
