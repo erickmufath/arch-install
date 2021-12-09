@@ -9,19 +9,6 @@ echo -e "==================================================="
 echo    "=  Catatan : Drive hanya akan dipartisi menjadi 1 ="
 echo    "=      untuk system, penyimpanan, dan home        ="
 echo -e "==================================================="
-read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
-case $cnfrm in
-y|Y|yes|Yes|YES)
-;;
-*)
-echo -e "==================================================="
-echo    "=  Masukkan Tidak Valid/Anda Menolak Melanjutkan  ="
-echo -e "==================================================="
-sleep 2
-clear
-;;
-esac
-pilihdrive:
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
@@ -31,19 +18,6 @@ read -p "Pilih Drive (Contoh : sda atau nvmen1) = " drive
 cfdisk /dev/${drive}
 clear
 lsblk
-read -p "Apa Drive dan Konfigurasi Partisi Anda Sudah Benar (y/N):" conprts
-case $conprts in
-y|Y|yes|Yes|YES)
-;;
-*)
-echo -e "==================================================="
-echo    "=     Memulai Ulang Pemilihan Drive & Partisi     ="
-echo -e "==================================================="
-sleep 2
-clear
-pilihdrive
-;;
-esac
 read -p "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
 mount /dev/${prts} /mnt
@@ -97,6 +71,7 @@ arch-chroot /mnt pacman -Rnsc pulseaudio pulseaudio-alsa discover jack jack2
 arch-chroot /mnt pacman -Syyu
 
 arch-chroot /mnt git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd ..
+sudo pacman -Syu --needed && sudo pacman-key --refresh-keys && sudo gpg --refresh-keys
 
 arch-chroot /mnt yay -S rar
 arch-chroot /mnt yay -S sndcpy
@@ -108,15 +83,6 @@ arch-chroot /mnt yay -S aic94xx-firmware
 arch-chroot /mnt yay -S wd719x-firmware
 arch-chroot /mnt yay -S upd72020x-fw
 arch-chroot /mnt yay -S nerd-fonts-source-code-pro
-sig:
-echo    "Apakah gpg/pkg signature error? Jika ya ini akan memakan waktu lama (y/N):" gpgsig
-case $gpgsig in
-y|Y|yes|Yes|YES)
-;;
-*)
-clear
-sig
-esac
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
 arch-chroot /mnt systemctl enable sddm.service
