@@ -12,7 +12,7 @@ echo -e "==================================================="
 read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
 case $cnfrm in
 y|Y|yes|Yes|YES)
-pilihdrive:(){
+pilihdrive(){
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
