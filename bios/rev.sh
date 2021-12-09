@@ -9,6 +9,7 @@ echo -e "==================================================="
 echo    "=  Catatan : Drive hanya akan dipartisi menjadi 1 ="
 echo    "=      untuk system, penyimpanan, dan home        ="
 echo -e "==================================================="
+konfirmasi(){
 read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
 case $cnfrm in
 y|Y|yes|Yes|YES)
@@ -152,5 +153,7 @@ echo    "=  Masukkan Tidak Valid/Anda Menolak Melanjutkan  ="
 echo -e "==================================================="
 sleep 2
 clear
+konfirmasi
 ;;
 esac
+}
