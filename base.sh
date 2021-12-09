@@ -67,5 +67,5 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-arch-chroot /mnt pacman -Syu --noconfirm
+arch-chroot /mnt pacman -Sy grub --noconfirm
 
