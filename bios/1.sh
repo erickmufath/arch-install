@@ -57,4 +57,52 @@ echo -e "==================================================="
 #script
 pacstrap /mnt base base-devel linux linux-firmware linux-headers nano sudo archlinux-keyring wget git libnewt intel-ucode ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
+
+echo "--------------------------------------------------------"
+echo "           Setup Bahasa, lokal, Hostname & Hosts        "
+echo "--------------------------------------------------------"
+sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+arch-chroot /mnt locale-gen
+arch-chroot /mnt timedatectl --no-ask-password set-timezone Asia/Jakarta
+arch-chroot /mnt timedatectl --no-ask-password set-ntp 1
+arch-chroot /mnt localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TIME="en_GB.UTF-8"
+
+# Set keymaps
+arch-chroot /mnt localectl --no-ask-password set-keymap us
+
+# Set hostname & hosts
+arch-chroot /mnt echo "pc" >> /etc/hostname
+arch-chroot /mnt echo "127.0.0.1	localhost" >> /etc/hosts
+arch-chroot /mnt echo "::1	localhost" >> /etc/hosts
+arch-chroot /mnt echo "127.0.1.1	pc.localdomain	pc" >> /etc/hosts
+
+# Add sudo no password rights
+arch-chroot /mnt sed -i 's/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+
+# Add sudo rights
+arch-chroot /mnt sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
+
+#Add parallel downloading
+arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
+
+#Enable multilib
+arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+arch-chroot /mnt pacman -Syu --noconfirm
+arch-chroot /mnt pacman -S grub networkmanager --noconfirm
+arch-chroot /mnt git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd ..
+
+arch-chroot /mnt grub-install --target=i386-pc /dev/sda
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+echo "Masukkan Root Password "
+arch-chroot /mnt passwd
+read -p "Masukkan Username :" usrname
+echo "Masukan User Password "
+arch-chroot /mnt useradd -mG wheel ${usrname}
+arch-chroot /mnt passwd ${usrname}
+echo "--------------------------------------------------------"
+echo "                  Reboot Ulang..."
+echo "--------------------------------------------------------"
+sleep 5
+rm -rf arch-install
+umount -R /mnt
+reboot
