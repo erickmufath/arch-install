@@ -1,5 +1,6 @@
 clear
 chmod +x arch-install/*
+cp -rf arch-install /mnt/home/${usrname}/
 pacman -Sy grub efibootmgr --noconfirm
 clear
 echo "=] 1. BIOS/Legacy"
@@ -20,4 +21,3 @@ sh arch-install/1.sh
 sh arch-install/hybrid.sh
 ;;
 esac
-cp -rf arch-install /mnt/home/${usrname}/
