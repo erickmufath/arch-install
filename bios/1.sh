@@ -22,7 +22,6 @@ sleep 2
 clear
 ;;
 esac
-}
 pilihdrive () {
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
@@ -42,11 +41,10 @@ echo -e "==================================================="
 echo    "=     Memulai Ulang Pemilihan Drive & Partisi     ="
 echo -e "==================================================="
 sleep 2
-pilihdrive
 clear
+pilihdrive
 ;;
 esac
-}
 read -p "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
 mount /dev/${prts} /mnt
@@ -120,7 +118,6 @@ y|Y|yes|Yes|YES)
 clear
 sig
 esac
-}
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
 arch-chroot /mnt systemctl enable sddm.service
@@ -153,3 +150,6 @@ sleep 5
 rm -rf arch-install
 umount -R /mnt
 reboot
+}
+}
+}
