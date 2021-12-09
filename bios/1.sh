@@ -13,7 +13,6 @@ konfirmasi () {
 read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
 case $cnfrm in
 y|Y|yes|Yes|YES)
-pilihdrive
 ;;
 *)
 echo -e "==================================================="
