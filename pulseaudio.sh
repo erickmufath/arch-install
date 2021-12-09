@@ -1,1 +1,1 @@
-sudo pacman -S pulseaudio jack --noconfirm
+sudo pacman -S pulseaudio jack jack2 --noconfirm
