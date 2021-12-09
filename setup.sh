@@ -5,8 +5,8 @@ pacman -Sy grub efibootmgr --noconfirm
 clear
 echo "=] 1. BIOS/Legacy"
 echo "=] 2. UEFI"
-echo "=] 1. HYBRID [Direkomendasikan Untuk Media External]"
-read -p ">> Pilih Jenis Boot : " boot
+echo "=] 3. HYBRID [Direkomendasikan Untuk Media External]"
+read -p ">> Pilih Jenis Boot (1/2/3) : " boot
 case $boot in
 1)
 sh arch-install/1.sh
