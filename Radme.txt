@@ -1,6 +1,0 @@
-1. Partisi terlebih dahulu drive root
-2. Jalankan pacstrap.sh
-3. Jalankan chroot.sh
-6. Setting root password
-8. Jalankan install-pkg.sh
-9. Jalankan enable-service.sh [root]
