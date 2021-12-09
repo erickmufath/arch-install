@@ -70,8 +70,8 @@ arch-chroot /mnt pacman -Sy grub os-prober ntp networkmanager network-manager-ap
 arch-chroot /mnt pacman -Rnsc pulseaudio pulseaudio-alsa discover jack jack2
 arch-chroot /mnt pacman -Syyu
 
-arch-chroot /mnt git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && cd ..
-sudo pacman -Syu --needed && sudo pacman-key --refresh-keys && sudo gpg --refresh-keys
+arch-chroot /mnt git clone https://aur.archlinux.org/yay.git && arch-chroot /mnt cd yay && arch-chroot /mnt makepkg -si && cd ..
+arch-chroot /mnt pacman -Syu --needed && arch-chroot /mnt pacman-key --refresh-keys && arch-chroot /mnt gpg --refresh-keys
 
 arch-chroot /mnt yay -S rar
 arch-chroot /mnt yay -S sndcpy
