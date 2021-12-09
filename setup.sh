@@ -1,5 +1,7 @@
 clear
 chmod +x arch-install/*
+pacman -Sy grub efibootmgr --noconfirm
+clear
 echo "=] 1. BIOS/Legacy"
 echo "=] 2. UEFI"
 echo "=] 1. HYBRID [Direkomendasikan Untuk Media External]"
