@@ -33,10 +33,8 @@ sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
-pacstrap /mnt base base-devel linux linux-firmware linux-headers nano sudo packagekit packagekit-qt5 dbus archlinux-keyring wget git libnewt ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
+pacstrap /mnt base base-devel linux linux-firmware linux-headers nano sudo packagekit-qt5 archlinux-keyring wget git libnewt ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt systemctl enable dbus
-arch-chroot /mnt systemctl start dbus
 echo "--------------------------------------------------------"
 echo "           Setup Bahasa, lokal, Hostname & Hosts        "
 echo "--------------------------------------------------------"
