@@ -14,11 +14,11 @@ echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
 echo -e "==================================================="
 lsblk
-read -p "Pilih Drive (Contoh : sda atau nvmen1) = " drive
+read -p "->] Pilih Drive (Contoh : sda atau nvmen1) = " drive
 cfdisk /dev/${drive}
 clear
 lsblk
-read -p "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
+read -p "->] Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
 mount /dev/${prts} /mnt
 echo -e "==================================================="
@@ -47,7 +47,7 @@ arch-chroot /mnt localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TI
 arch-chroot /mnt localectl --no-ask-password set-keymap us
 
 # Set hostname & hosts
-read -p "Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " hstname
+read -p "->] Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " hstname
 arch-chroot /mnt echo ${hstname} >> /etc/hostname
 arch-chroot /mnt echo "127.0.0.1	localhost" >> /etc/hosts
 arch-chroot /mnt echo "::1	localhost" >> /etc/hosts
@@ -101,10 +101,10 @@ echo    "--------------------------------------------------------"
 
 arch-chroot /mnt grub-install --target=i386-pc /dev/sda
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-echo "Masukkan Root Password "
+echo "->] Masukkan Root Password "
 arch-chroot /mnt passwd
-read -p "Masukkan Username :" usrname
-echo "Masukkan User Password "
+read -p "->] Masukkan Username :" usrname
+echo "->] Masukkan User Password "
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 echo "--------------------------------------------------------"
