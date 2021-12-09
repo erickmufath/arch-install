@@ -148,6 +148,7 @@ arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
+echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
 sleep 5
 rm -rf arch-install
