@@ -1,7 +1,7 @@
 clear
 chmod +x arch-install/*
 cp -rf arch-install /mnt/home/${usrname}/
-pacman -Sy grub efibootmgr --noconfirm
+pacman -Sy grub efibootmgr --noconfirm --needed
 clear
 echo "=] 1. BIOS/Legacy"
 echo "=] 2. UEFI"
