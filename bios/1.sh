@@ -10,7 +10,7 @@ echo    "=  Catatan : Drive hanya akan dipartisi menjadi 1 ="
 echo    "=      untuk system, penyimpanan, dan home        ="
 echo -e "==================================================="
 konfirmasi () {
-read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
+echo    "Apa kamu yakin untuk menggunakan script ini (y/N):" read cnfrm
 case $cnfrm in
 y|Y|yes|Yes|YES)
 pilihdrive
@@ -30,11 +30,11 @@ echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
 echo -e "==================================================="
 lsblk
-read -p "Pilih Drive (Contoh : sda atau nvmen1) = " drive
+echo    "Pilih Drive (Contoh : sda atau nvmen1) = " read drive
 cfdisk /dev/${drive}
 clear
 lsblk
-read -p "Apa Drive dan Konfigurasi Partisi Anda Sudah Benar (y/N):" conprts
+echo "Apa Drive dan Konfigurasi Partisi Anda Sudah Benar (y/N):" read conprts
 case $conprts in
 y|Y|yes|Yes|YES)
 ;;
@@ -47,7 +47,7 @@ pilihdrive
 clear
 ;;
 esac
-read -p "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
+echo    "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " read prts
 mkfs.ext4 /dev/${prts}
 mount /dev/${prts} /mnt
 }
@@ -77,7 +77,7 @@ arch-chroot /mnt localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TI
 arch-chroot /mnt localectl --no-ask-password set-keymap us
 
 # Set hostname & hosts
-read -p "Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " hstname
+echo    "Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " read hstname
 arch-chroot /mnt echo ${hstname} >> /etc/hostname
 arch-chroot /mnt echo "127.0.0.1	localhost" >> /etc/hosts
 arch-chroot /mnt echo "::1	localhost" >> /etc/hosts
@@ -142,7 +142,7 @@ arch-chroot /mnt grub-install --target=i386-pc /dev/sda
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 echo "Masukkan Root Password "
 arch-chroot /mnt passwd
-read -p "Masukkan Username :" usrname
+echo "Masukkan Username :" read usrname
 echo "Masukkan User Password "
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
