@@ -12,6 +12,7 @@ echo -e "==================================================="
 read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
 case $cnfrm in
 y|Y|yes|Yes|YES)
+;;
 pilihdrive(){
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
@@ -25,6 +26,7 @@ lsblk
 read -p "Apa Drive dan Konfigurasi Partisi Anda Sudah Benar (y/N):" conprts
 case $conprts in
 y|Y|yes|Yes|YES)
+;;
 lsblk
 read -p "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
@@ -94,6 +96,7 @@ sig(){
 echo    "Jika gpg/signature tidak error ketik y atau yes:" gpgsig
 case $gpgsig in
 y|Y|yes|Yes|YES)
+;;
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
 arch-chroot /mnt systemctl enable sddm.service
@@ -126,14 +129,13 @@ sleep 5
 rm -rf arch-install
 umount -R /mnt
 reboot
-;;
 *)
 clear
 arch-chroot /mnt pacman -Syu --needed && sudo pacman-key --refresh-keys --needed && sudo gpg --refresh-keys --need
 sig
+;;
 esac
 }
-;;
 *)
 echo -e "==================================================="
 echo    "=     Memulai Ulang Pemilihan Drive & Partisi     ="
@@ -144,7 +146,6 @@ pilihdrive
 ;;
 esac
 }
-;;
 *)
 echo -e "==================================================="
 echo    "=  Masukkan Tidak Valid/Anda Menolak Melanjutkan  ="
