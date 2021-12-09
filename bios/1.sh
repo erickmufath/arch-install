@@ -11,17 +11,15 @@ echo    "=      untuk system, penyimpanan, dan home        ="
 echo -e "==================================================="
 konfirmasi () {
 read -p "Apa kamu yakin untuk menggunakan script ini (y/N):" cnfrm
-case $cnfrm in
-y|Y|yes|Yes|YES)
-;;
-*)
+while [$confrm==y|Y|yes|Yes|YES]
+do pilihdrive
 echo -e "==================================================="
 echo    "=  Masukkan Tidak Valid/Anda Menolak Melanjutkan  ="
 echo -e "==================================================="
 sleep 2
 clear
-;;
-esac
+konfirmasi
+}
 pilihdrive () {
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
@@ -45,6 +43,7 @@ clear
 pilihdrive
 ;;
 esac
+}
 read -p "Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
 mount /dev/${prts} /mnt
@@ -118,6 +117,7 @@ y|Y|yes|Yes|YES)
 clear
 sig
 esac
+}
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
 arch-chroot /mnt systemctl enable sddm.service
@@ -150,6 +150,3 @@ sleep 5
 rm -rf arch-install
 umount -R /mnt
 reboot
-}
-}
-}
