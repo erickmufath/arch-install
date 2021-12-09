@@ -1,17 +1,17 @@
 git clone https://aur.archlinux.org/yay.git
-yay -S rar
-yay -S sndcpy
-yay -S ventoy-bin
-yay -S sddm-nordic-theme-git
-yay -S dxvk-bin
-yay -S aic94xx-firmware
-yay -S wd719x-firmware
-yay -S upd72020x-fw
-yay -S nerd-fonts-source-code-pro
-yay -S liba52
-yay -S mad
-yay -S musepack
-yay -S vorbis
+yay -S rar --needed
+yay -S sndcpy --needed
+yay -S ventoy-bin --needed
+yay -S sddm-nordic-theme-git --needed
+yay -S dxvk-bin --needed
+yay -S aic94xx-firmware --needed
+yay -S wd719x-firmware --needed
+yay -S upd72020x-fw --needed
+yay -S nerd-fonts-source-code-pro --needed
+yay -S liba52 --needed
+yay -S mad --needed
+yay -S musepack --needed
+yay -S vorbis --needed
 echo    "--------------------------------------------------------"
 echo -e "       Enabling Login Display Manager"
 sudo systemctl enable sddm.service
