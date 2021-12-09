@@ -1,4 +1,3 @@
-arch-chroot /mnt pacman -Sy efibootmgr --noconfirm
 grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot
 grub-mkconfig -o /mnt/boot/grub/grub.cfg
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
