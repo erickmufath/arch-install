@@ -1,6 +1,6 @@
 # arch-install
 1. Jalankan iso bootable arch linux
-2. Konfigurasikan Internet (wifi/wan) jika internet kabel harusnya sudah otomatis
+2. Konfigurasikan Internet (wifi/wan) jika internet anda internet kabel tidak perlu konfigurasi apa-apa cukup tes dengan ping.
 3. Install git dengan mengetikan "pacman -Sy git" tanpa tanda petik lalu enter
 4. Clone github ini dengan mengetikan "git clone https://github.com/erickmufath/arch-install" tanpa tanda petik lalu enter
 5. Jalankan script dengan mengetikan "sh arch-install/setup.sh" tanpa tanda petik lalu enter, setelah selesai pc akan me-reboot ulang
