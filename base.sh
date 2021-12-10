@@ -27,7 +27,7 @@ echo -e "  "
 lsblk
 echo -e "==================================================="
 read -p "->] Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
-mkfs.ext4 -L /dev/"${prts}"
+mkfs.ext4 /dev/"${prts}"
 mount /dev/"${prts}" /mnt
 read "Enter Jika Tidak Terjadi Error atau spam CTRL+C Jika Terjadi Error" he
 echo -e "==================================================="
