@@ -13,6 +13,7 @@ echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
+read -p "========= ENTER UNTUK MELANJUTKAN....." re
 sleep 5
 rm -rf arch-install
 umount -R /mnt
