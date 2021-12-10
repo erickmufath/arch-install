@@ -37,7 +37,7 @@ echo -e "==================================================="
 read -p "->] Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/"${prts}"
 mount /dev/"${prts}" /mnt
-read -p "Enter Jika Tidak Terjadi Error atau spam CTRL+C Jika Terjadi Error" he
+read -p "=== Enter Jika Tidak Terjadi Error...." he
 echo -e "==================================================="
 echo    "=           Menginstall Base System...            ="
 echo -e "==================================================="
@@ -50,9 +50,9 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
 pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt pacman -Sy pacman-contrib curl --noconfirm --needed
-arch-chroot /mnt pacman -Sy reflector rsync ntp --noconfirm --needed
-arch-chroot /mnt reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
+arch-chroot /mnt pacman -Sy pacman-contrib ntp curl --noconfirm --needed
+#arch-chroot /mnt pacman -Sy reflector rsync --noconfirm --needed
+#arch-chroot /mnt reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 arch-chroot /mnt systemctl enable NetworkManager
 echo "--------------------------------------------------------"
 echo "           Setup Bahasa, lokal, Hostname & Hosts        "
