@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-pacman -S --noconfirm pacman-contrib curl --needed
-pacman -S --noconfirm reflector rsync --needed
+pacman -Sy --noconfirm pacman-contrib curl --needed
+pacman -Sy --noconfirm reflector rsync --needed
 iso=$(curl -4 ifconfig.co/country-iso)
 timedatectl set-ntp true
 reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
@@ -38,10 +38,6 @@ echo -e "==================================================="
 echo    "=           Menginstall Base System...            ="
 echo -e "==================================================="
 #script
-arch-chroot /mnt pacman -S pacman-contrib curl --noconfirm --needed
-arch-chroot /mnt pacman -S reflector rsync ntp --noconfirm --needed
-arch-chroot /mnt reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
-
 pacman -Sy sed --noconfirm --needed
 #Add parallel downloading
 sed -i 's/^#Para/Para/' /etc/pacman.conf
@@ -50,6 +46,9 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
 pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt pacman -Sy pacman-contrib curl --noconfirm --needed
+arch-chroot /mnt pacman -Sy reflector rsync ntp --noconfirm --needed
+arch-chroot /mnt reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 arch-chroot /mnt systemctl enable NetworkManager
 echo "--------------------------------------------------------"
 echo "           Setup Bahasa, lokal, Hostname & Hosts        "
@@ -82,5 +81,4 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-arch-chroot /mnt pacman -Sy grub --noconfirm
 
