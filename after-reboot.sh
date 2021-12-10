@@ -36,9 +36,9 @@ echo    "--------------------------------------------------------"
 read -p "->] Pilih Audio Controller (1/2) : " audioc
 case $audioc in
 1)
-sh pulseaudio.sh
+sh arch-install/pulseaudio.sh
 ;;
 2)
-sh pipewire.sh
+sh arch-install/pipewire.sh
 ;;
 esac
