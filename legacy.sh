@@ -1,5 +1,6 @@
-arch-chroot /mnt grub-install --target=i386-pc /dev/${drive}
+arch-chroot /mnt grub-install --target=i386-pc /dev/"${drive}"
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt mkinitcpio -p linux
 echo "->] Masukkan Root Password "
 arch-chroot /mnt passwd
 echo "--------------------------------------------------------"
