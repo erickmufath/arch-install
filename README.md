@@ -1,8 +1,12 @@
 # arch-install
-1. Jalankan setup.sh dalam iso bootable arch linux
-2. Login user lalu jalankan user-setup.sh
-3. Login root lalu jalankan root-setup.sh
-4. Reboot
-5. Uefi & Hybrid belum dites, harap pergunakan dengan hati-hati
+1. Jalankan iso bootable arch linux
+2. Konfigurasikan Internet (wifi/wan) jika internet kabel harusnya sudah otomatis
+3. Install git dengan mengetikan "pacman -Sy git" tanpa tanda petik lalu enter
+4. Clone github ini dengan mengetikan "git clone https://github.com/erickmufath/arch-install" tanpa tanda petik lalu enter
+5. Jalankan script dengan mengetikan "sh arch-install/setup.sh" tanpa tanda petik lalu enter, setelah selesai pc akan me-reboot ulang
+6. Login user lalu jalankan user-setup.sh dengan mengetikan "sh arch-install/user-setup.sh" tanpa tanda petik lalu enter
+7. Login root dengan mengetikan "sudo su" lalu enter, lalu jalankan juga root-setup.sh dengan mengetikan "sh arch-install/root-setup.sh" tanpa tanda petik lalu enter
+8. ketikan "reboot" tanpa tanda petik lalu enter
+9. Uefi & Hybrid belum dites, harap pergunakan dengan hati-hati
 
 *Tidak Bertanggung Jawab Atas Kesalahan atau Kerusakan yang disebabkan script
