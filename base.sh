@@ -151,12 +151,13 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bo
 arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
+echo "--------------------------------------------------------"
 echo "->] Masukkan Root Password "
 arch-chroot /mnt passwd
 echo "--------------------------------------------------------"
-read -p "->] Masukkan Username :" usrname
+read -p "->] Masukkan Username Baru : " usrname
 echo "--------------------------------------------------------"
-echo "->] Masukkan User Password "
+echo "->] Masukkan User Password Baru"
 echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
