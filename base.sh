@@ -20,15 +20,17 @@ echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
 echo -e "==================================================="
 echo
-
+echo -e "==================================================="
+echo -e "  "
 lsblk
-
+echo -e "==================================================="
 read -p "->] Pilih Drive (Contoh : sda atau nvmen1) = " drive
 cfdisk /dev/${drive}
 clear
-
+echo -e "==================================================="
+echo -e "  "
 lsblk
-
+echo -e "==================================================="
 read -p "->] Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
 mount /dev/${prts} /mnt
