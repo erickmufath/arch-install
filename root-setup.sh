@@ -1,5 +1,5 @@
 echo    "--------------------------------------------------------"
-echo -e "       Enabling Login Display Manager"
+echo -e "            Enabling Login Display Manager"
 systemctl enable sddm.service
 echo -e "\nSetup SDDM Theme"
 cat <<EOF > /etc/sddm.conf
