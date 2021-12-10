@@ -11,17 +11,17 @@ read -p ">> Pilih Jenis Boot (1/2/3) : " boot
 case $boot in
 1)
 sh arch-install/base.sh
-arch-chroot /mnt pacman -S grub --noconfirm
+arch-chroot /mnt pacman -Sy grub --noconfirm
 sh arch-install/legacy.sh
 ;;
 2)
 sh arch-install/base.sh
-arch-chroot /mnt pacman -S grub efibootmgr --noconfirm
+arch-chroot /mnt pacman -Sy grub efibootmgr --noconfirm
 sh arch-install/uefi.sh
 ;;
 3)
 sh arch-install/base.sh
-arch-chroot /mnt pacman -S grub efibootmgr --noconfirm
+arch-chroot /mnt pacman -Sy grub efibootmgr --noconfirm
 sh arch-install/hybrid.sh
 ;;
 esac
