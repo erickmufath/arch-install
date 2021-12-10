@@ -9,3 +9,4 @@ yay -S wireplumber --needed
 yay -S lib32-pipewire --needed
 yay -S lib32-pipewire-jack --needed
 yay -S pipewire-jack-replacement --needed
+yay -S easyeffects --needed
