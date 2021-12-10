@@ -1,4 +1,10 @@
 clear
+pacman -Sy --noconfirm pacman-contrib curl --needed
+pacman -Sy --noconfirm reflector rsync terminus-font --needed
+setfont ter-v22b
+iso=$(curl -4 ifconfig.co/country-iso)
+timedatectl set-ntp true
+reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 chmod +x arch-install/*
 cp -rf arch-install /mnt/home/${usrname}/
 clear
