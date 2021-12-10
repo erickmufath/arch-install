@@ -50,7 +50,7 @@ sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
-pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager
+pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager git
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt pacman -Sy pacman-contrib ntp curl --noconfirm --needed
 #arch-chroot /mnt pacman -Sy reflector rsync --noconfirm --needed
