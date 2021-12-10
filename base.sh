@@ -167,6 +167,7 @@ echo "--------------------------------------------------------"
 read -p "========= ENTER UNTUK MELANJUTKAN....." re
 HOME=arch-chroot /mnt /home
 arch-chroot /mnt git clone https://github.com/erickmufath/arch-install
+arch-chroot /mnt mv -rf /home/"${usrname}"
 sleep 5
 rm -rf arch-install
 umount -R /mnt
