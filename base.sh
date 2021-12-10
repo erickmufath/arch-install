@@ -96,7 +96,7 @@ echo "======================================================="
 read -p ">> Pilih Jenis Boot (1/2/3) : " boot
 case $boot in
 1)
-arch-chroot /mnt pacman -Sy grub --noconfirm
+arch-chroot /mnt pacman -Sy grub os-prober --noconfirm
 arch-chroot /mnt grub-install --target=i386-pc /dev/"${drive}"
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
@@ -120,7 +120,7 @@ umount -R /mnt
 reboot
 ;;
 2)
-arch-chroot /mnt pacman -Sy grub efibootmgr --noconfirm
+arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot
 arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
@@ -145,7 +145,7 @@ umount -R /mnt
 reboot
 ;;
 3)
-arch-chroot /mnt pacman -Sy grub efibootmgr --noconfirm
+arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
 arch-chroot /mnt grub-install --target=i386-pc --boot-directory=/mnt/boot /dev/"${drive}"
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot --removable --recheck
 arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
