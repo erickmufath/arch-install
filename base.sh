@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-pacman -S --noconfirm pacman-contrib curl
-pacman -S --noconfirm reflector rsync
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+pacman -S --noconfirm pacman-contrib curl --needed
+pacman -S --noconfirm reflector rsync --needed
+iso=$(curl -4 ifconfig.co/country-iso)
+timedatectl set-ntp true
+reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 clear
 echo -e "==================================================="
 echo    "=         Selamat Datang Di Scipt Saya            ="
@@ -17,11 +19,16 @@ echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
 echo -e "==================================================="
+echo
+
 lsblk
+
 read -p "->] Pilih Drive (Contoh : sda atau nvmen1) = " drive
 cfdisk /dev/${drive}
 clear
+
 lsblk
+
 read -p "->] Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 mkfs.ext4 /dev/${prts}
 mount /dev/${prts} /mnt
@@ -29,6 +36,9 @@ echo -e "==================================================="
 echo    "=           Menginstall Base System...            ="
 echo -e "==================================================="
 #script
+arch-chroot /mnt pacman -S --noconfirm pacman-contrib curl --needed
+arch-chroot /mnt pacman -S --noconfirm reflector rsync --needed
+arch-chroot /mnt reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 pacman -Sy sed --noconfirm --needed
 #Add parallel downloading
@@ -36,7 +46,7 @@ sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
-pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager ntp networkmanager network-manager-applet system-config-printer nano sudo packagekit-qt5 archlinux-keyring wget git libnewt ntfsprogs ntfs-3g dosfstools dos2unix e2fsprogs xfsprogs btrfs-progs --noconfirm --needed
+pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt systemctl enable NetworkManager
 echo "--------------------------------------------------------"
