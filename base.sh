@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 clear
+pacman -Sy --noconfirm pacman-contrib curl --needed
+pacman -Sy --noconfirm reflector rsync terminus-font --needed
+setfont ter-v22b
+iso=$(curl -4 ifconfig.co/country-iso)
+timedatectl set-ntp true
+reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
+chmod +x arch-install/*
+cp -rf arch-install /mnt/home/${usrname}/
+clear
 echo -e "==================================================="
 echo    "=         Selamat Datang Di Scipt Saya            ="
 echo    "=     Hati-hati ketika menggunakan script         ="
@@ -78,3 +87,83 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
+echo "======================================================="
+echo "=] 1. BIOS/Legacy"
+echo "=] 2. UEFI"
+echo "=] 3. HYBRID [Direkomendasikan Untuk Media External]"
+echo "======================================================="
+read -p ">> Pilih Jenis Boot (1/2/3) : " boot
+case $boot in
+1)
+arch-chroot /mnt grub-install --target=i386-pc /dev/"${drive}"
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt mkinitcpio -p linux
+echo "->] Masukkan Root Password "
+arch-chroot /mnt passwd
+echo "--------------------------------------------------------"
+read -p "->] Masukkan Username :" usrname
+echo "--------------------------------------------------------"
+echo "->] Masukkan User Password "
+echo "--------------------------------------------------------"
+arch-chroot /mnt useradd -mG wheel ${usrname}
+arch-chroot /mnt passwd ${usrname}
+echo "--------------------------------------------------------"
+echo "                  Reboot Ulang..."
+echo "                  Harap Copot Bootable Media..."
+echo "--------------------------------------------------------"
+read -p "========= ENTER UNTUK MELANJUTKAN....." re
+sleep 5
+rm -rf arch-install
+umount -R /mnt
+reboot
+;;
+2)
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot
+arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
+arch-chroot /mnt mkinitcpio -p linux
+arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
+echo "->] Masukkan Root Password "
+arch-chroot /mnt passwd
+echo "--------------------------------------------------------"
+read -p "->] Masukkan Username :" usrname
+echo "--------------------------------------------------------"
+echo "->] Masukkan User Password "
+echo "--------------------------------------------------------"
+arch-chroot /mnt useradd -mG wheel ${usrname}
+arch-chroot /mnt passwd ${usrname}
+echo "--------------------------------------------------------"
+echo "                  Reboot Ulang..."
+echo "                  Harap Copot Bootable Media..."
+echo "--------------------------------------------------------"
+read -p "========= ENTER UNTUK MELANJUTKAN....." re
+sleep 5
+rm -rf arch-install
+umount -R /mnt
+reboot
+;;
+3)
+arch-chroot /mnt grub-install --target=i386-pc --boot-directory=/mnt/boot /dev/"${drive}"
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot --removable --recheck
+arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
+arch-chroot /mnt mkinitcpio -p linux
+arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
+echo "->] Masukkan Root Password "
+arch-chroot /mnt passwd
+echo "--------------------------------------------------------"
+read -p "->] Masukkan Username :" usrname
+echo "--------------------------------------------------------"
+echo "->] Masukkan User Password "
+echo "--------------------------------------------------------"
+arch-chroot /mnt useradd -mG wheel ${usrname}
+arch-chroot /mnt passwd ${usrname}
+echo "--------------------------------------------------------"
+echo "                  Reboot Ulang..."
+echo "                  Harap Copot Bootable Media..."
+echo "--------------------------------------------------------"
+read -p "========= ENTER UNTUK MELANJUTKAN....." re
+sleep 5
+rm -rf arch-install
+umount -R /mnt
+reboot
+;;
+esac
