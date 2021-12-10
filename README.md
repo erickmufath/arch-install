@@ -4,4 +4,4 @@
 3. Login root lalu jalankan root-setup.sh
 4. Reboot
 5. Uefi & Hybrid belum dites, harap pergunakan dengan hati-hati
-*Tidak Bertanggung Jawab Atas Kesalahan atau Kerusakan yang disebabkan script
+6. *Tidak Bertanggung Jawab Atas Kesalahan atau Kerusakan yang disebabkan script
