@@ -68,10 +68,10 @@ arch-chroot /mnt localectl --no-ask-password set-keymap us
 
 # Set hostname & hosts
 read -p "->] Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " hstname
-arch-chroot /mnt echo ${hstname} >> /etc/hostname
-arch-chroot /mnt echo "127.0.0.1	localhost" >> /etc/hosts
-arch-chroot /mnt echo "::1	localhost" >> /etc/hosts
-arch-chroot /mnt echo "127.0.1.1	${hstname}.localdomain	${hstname}" >> /etc/hosts
+echo ${hstname} >> /mnt/etc/hostname
+echo "127.0.0.1	localhost" >> /mnt/etc/hosts
+echo "::1	localhost" >> /mnt/etc/hosts
+echo "127.0.1.1	${hstname}.localdomain	${hstname}" >> /mnt/etc/hosts
 arch-chroot /mnt pacman -Sy sed --noconfirm
 
 # Add sudo no password rights
