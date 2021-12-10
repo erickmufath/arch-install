@@ -165,7 +165,8 @@ echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
 read -p "========= ENTER UNTUK MELANJUTKAN....." re
-cp -rf arch-install /mnt/home/"${usrname}"/
+HOME=arch-chroot /mnt /home
+cp -rf arch-install $HOME/"${usrname}"/
 sleep 5
 rm -rf arch-install
 umount -R /mnt
