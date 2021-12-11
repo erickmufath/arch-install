@@ -113,7 +113,8 @@ echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." re
+read -p "========= ENTER UNTUK MELANJUTKAN....." p
+cp -rf arch-install /mnt/home/"${usrname}"
 sleep 5
 rm -rf arch-install
 umount -R /mnt
@@ -139,7 +140,8 @@ echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." re
+read -p "========= ENTER UNTUK MELANJUTKAN....." q
+cp -rf arch-install /mnt/home/"${usrname}"
 sleep 5
 rm -rf arch-install
 umount -R /mnt
@@ -167,10 +169,8 @@ echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." re
-HOME=arch-chroot /mnt /home
-arch-chroot /mnt git clone https://github.com/erickmufath/arch-install
-arch-chroot /mnt mv -rf /home/"${usrname}"
+read -p "========= ENTER UNTUK MELANJUTKAN....." r
+cp -rf arch-install /mnt/home/"${usrname}"
 sleep 5
 rm -rf arch-install
 umount -R /mnt
