@@ -7,6 +7,8 @@
 6. Login user lalu jalankan user-setup.sh dengan mengetikan "sh arch-install/user-setup.sh" tanpa tanda petik lalu enter
 7. Login root dengan mengetikan "sudo su" lalu enter, lalu jalankan juga root-setup.sh dengan mengetikan "sh arch-install/root-setup.sh" tanpa tanda petik lalu enter
 8. ketikan "reboot" tanpa tanda petik lalu enter
-9. Uefi & Hybrid belum dites, harap pergunakan dengan hati-hati
+
+
+Uefi & Hybrid belum dites, harap pergunakan dengan hati-hati
 
 *Tidak Bertanggung Jawab Atas Kesalahan atau Kerusakan yang disebabkan script
