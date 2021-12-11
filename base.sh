@@ -14,18 +14,25 @@ echo    "=     Hati-hati ketika menggunakan script         ="
 echo    "=  Tidak Bertanggung Jawab Atas Kehilangan Data   ="
 echo    "=                    Script Ini                   ="
 echo    "=       Ini akan mempartisi ulang drive           ="
-echo -e "==================================================="
-echo    "=  Catatan : Drive hanya akan dipartisi menjadi 1 ="
-echo    "=      untuk system, penyimpanan, dan home        ="
-echo -e "==================================================="
+clear
+echo "======================================================="
+echo "=] 1. BIOS/Legacy"
+echo "=] 2. UEFI"
+echo "=] 3. HYBRID [Direkomendasikan Untuk Media External]"
+echo "======================================================="
+read -p ">> Pilih Jenis Boot (1/2/3) : " boot
+clear
+read -p "->] Masukkan Hostname/Nama Komputer Arch Linux (Contoh : pc atau acer) = " hstname
+clear
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
 echo    "=               Bukan Partisi                     ="
 echo -e "==================================================="
-echo
+echo    "  "
 echo -e "==================================================="
 echo -e "  "
 lsblk
+echo -e "  "
 echo -e "==================================================="
 read -p "->] Pilih Drive (Contoh : sda atau nvmen1) = " drive
 read -p "=== Enter Untuk Melanjutkan...." a
@@ -34,12 +41,14 @@ clear
 echo -e "==================================================="
 echo -e "  "
 lsblk
+echo -e "  "
 echo -e "==================================================="
 read -p "->] Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
 read -p "=== Enter Untuk Melanjutkan...."
 mkfs.ext4 /dev/"${prts}"
 mount /dev/"${prts}" /mnt
 read -p "=== Enter Jika Tidak Terjadi Error...." he
+clear
 echo -e "==================================================="
 echo    "=           Menginstall Base System...            ="
 echo -e "==================================================="
@@ -69,8 +78,6 @@ arch-chroot /mnt localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TI
 arch-chroot /mnt localectl --no-ask-password set-keymap us
 
 # Set hostname & hosts
-clear
-read -p "->] Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " hstname
 echo ${hstname} >> /mnt/etc/hostname
 echo "127.0.0.1	localhost" >> /mnt/etc/hosts
 echo "::1	localhost" >> /mnt/etc/hosts
@@ -88,13 +95,8 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-clear
-echo "======================================================="
-echo "=] 1. BIOS/Legacy"
-echo "=] 2. UEFI"
-echo "=] 3. HYBRID [Direkomendasikan Untuk Media External]"
-echo "======================================================="
-read -p ">> Pilih Jenis Boot (1/2/3) : " boot
+
+#Install and grub configuration
 case $boot in
 1)
 arch-chroot /mnt pacman -Sy grub os-prober --noconfirm
