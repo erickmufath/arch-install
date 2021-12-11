@@ -12,6 +12,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
+yay -S sddm-nordic-theme-git --needed
 clear
 echo    "--------------------------------------------------------"
 echo    "=] 1. Pulseaudio [Default Kebanyakan Distro]"
@@ -43,7 +44,7 @@ echo    "--------------------------------------------------------"
 echo    "=] 1. Pulseaudio [Default Kebanyakan Distro]"
 echo    "=] 2. Pipewire [Audio Controller Modern]"
 echo    "--------------------------------------------------------"
-read -p "->] Pilih Audio Controller (1/2) : " audioc
+read -p "->] Pilih Audio Controller (1/2) : " audiod
 case $audioc in
 1)
 sh arch-install/pulseaudio.sh
