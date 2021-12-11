@@ -69,6 +69,7 @@ arch-chroot /mnt localectl --no-ask-password set-locale LANG="en_US.UTF-8" LC_TI
 arch-chroot /mnt localectl --no-ask-password set-keymap us
 
 # Set hostname & hosts
+clear
 read -p "->] Masukkan Hostname/Nama Komputer (Contoh : pc atau acer) = " hstname
 echo ${hstname} >> /mnt/etc/hostname
 echo "127.0.0.1	localhost" >> /mnt/etc/hosts
@@ -87,7 +88,7 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-
+clear
 echo "======================================================="
 echo "=] 1. BIOS/Legacy"
 echo "=] 2. UEFI"
@@ -100,8 +101,12 @@ arch-chroot /mnt pacman -Sy grub os-prober --noconfirm
 arch-chroot /mnt grub-install --target=i386-pc /dev/"${drive}"
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
+clear
+echo "--------------------------------------------------------"
 echo "->] Masukkan Root Password "
+echo "--------------------------------------------------------"
 arch-chroot /mnt passwd
+clear
 echo "--------------------------------------------------------"
 read -p "->] Masukkan Username :" usrname
 echo "--------------------------------------------------------"
@@ -109,6 +114,7 @@ echo "->] Masukkan User Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
+clear
 echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
@@ -127,8 +133,12 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-d
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
+clear
+echo "--------------------------------------------------------"
 echo "->] Masukkan Root Password "
+echo "--------------------------------------------------------"
 arch-chroot /mnt passwd
+clear
 echo "--------------------------------------------------------"
 read -p "->] Masukkan Username :" usrname
 echo "--------------------------------------------------------"
@@ -136,11 +146,12 @@ echo "->] Masukkan User Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
+clear
 echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." q
+read -p "========= ENTER UNTUK MELANJUTKAN....." p
 cp -rf arch-install /mnt/home/"${usrname}"
 sleep 5
 rm -rf arch-install
@@ -155,21 +166,25 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-d
 arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
+clear
 echo "--------------------------------------------------------"
 echo "->] Masukkan Root Password "
+echo "--------------------------------------------------------"
 arch-chroot /mnt passwd
+clear
 echo "--------------------------------------------------------"
-read -p "->] Masukkan Username Baru : " usrname
+read -p "->] Masukkan Username :" usrname
 echo "--------------------------------------------------------"
-echo "->] Masukkan User Password Baru"
+echo "->] Masukkan User Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
+clear
 echo "--------------------------------------------------------"
 echo "                  Reboot Ulang..."
 echo "                  Harap Copot Bootable Media..."
 echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." r
+read -p "========= ENTER UNTUK MELANJUTKAN....." p
 cp -rf arch-install /mnt/home/"${usrname}"
 sleep 5
 rm -rf arch-install
