@@ -13,3 +13,4 @@ systemctl stop dhcpcd.service
 systemctl enable NetworkManager.service
 systemctl enable bluetooth
 echo    "--------------------------------------------------------"
+cp -rf arch-install/xorg.conf /etc/X11/
