@@ -17,8 +17,8 @@ echo    "=       Ini akan mempartisi ulang drive           ="
 clear
 echo "======================================================="
 echo "=] 1. BIOS/Legacy"
-echo "=] 2. UEFI"
-echo "=] 3. HYBRID [Direkomendasikan Untuk Media External]"
+#echo "=] 2. UEFI"
+#echo "=] 3. HYBRID [Direkomendasikan Untuk Media External]"
 echo "======================================================="
 read -p ">> Pilih Jenis Boot (1/2/3) : " boot
 clear
