@@ -121,8 +121,9 @@ reboot
 ;;
 2)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot
-arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
+arch-chroot /mnt mkdir boot
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
 echo "->] Masukkan Root Password "
@@ -146,8 +147,9 @@ reboot
 ;;
 3)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
-arch-chroot /mnt grub-install --target=i386-pc --boot-directory=/mnt/boot /dev/"${drive}"
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/mnt/boot --boot-directory=/mnt/boot --removable --recheck
+arch-chroot /mnt mkdir boot
+arch-chroot /mnt grub-install --target=i386-pc --boot-directory=/boot /dev/"${drive}"
+arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot --removable --recheck
 arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
