@@ -1,6 +1,6 @@
 echo    "--------------------------------------------------------"
 echo    "=] 1. Install Paket Basic (Sangat Minimal)"
-echo    "=] 2. Install Paket Standard Minimal Owner Script"
+echo    "=] 2. Install Paket Standard Minimal"
 echo    "--------------------------------------------------------"
 read -p "->] Pilih (1/2) : " usrr
 case $usrr in
