@@ -20,7 +20,7 @@ echo "=] 1. BIOS/Legacy"
 #echo "=] 2. UEFI"
 #echo "=] 3. HYBRID [Direkomendasikan Untuk Media External]"
 echo "======================================================="
-read -p ">> Pilih Jenis Boot (1/2/3) : " boot
+read -p ">> Pilih Jenis Boot (1) : " boot
 clear
 read -p "->] Input Nama Komputer Arch Linux (Contoh : pc atau acer) = " hstname
 clear
