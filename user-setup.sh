@@ -12,6 +12,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
+yay -S timeshift --needed
 yay -S sddm-nordic-theme-git --needed
 clear
 echo    "--------------------------------------------------------"
@@ -53,6 +54,7 @@ sh arch-install/pulseaudio.sh
 sh arch-install/pipewire.sh
 ;;
 esac
+yay -S timeshift --needed
 yay -S rar --needed
 yay -S sndcpy --needed
 yay -S ventoy-bin --needed
