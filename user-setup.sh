@@ -67,8 +67,8 @@ yay -S mad --needed
 yay -S musepack --needed
 yay -S vorbis --needed
 yay -S google-chrome --needed
-;;
 echo    "--------------------------------------------------------"
 echo    "== SELESAI"
 echo    "--------------------------------------------------------"
+;;
 esac
