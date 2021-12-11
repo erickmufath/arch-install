@@ -22,7 +22,7 @@ echo "=] 1. BIOS/Legacy"
 echo "======================================================="
 read -p ">> Pilih Jenis Boot (1/2/3) : " boot
 clear
-read -p "->] Masukkan Hostname/Nama Komputer Arch Linux (Contoh : pc atau acer) = " hstname
+read -p "->] Input Nama Komputer Arch Linux (Contoh : pc atau acer) = " hstname
 clear
 echo -e "==================================================="
 echo    "=             Pilih Drive/Target                  ="
@@ -105,14 +105,14 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt mkinitcpio -p linux
 clear
 echo "--------------------------------------------------------"
-echo "->] Masukkan Root Password "
+echo "->] Input Root Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt passwd
 clear
 echo "--------------------------------------------------------"
-read -p "->] Masukkan Username :" usrname
+read -p "->] Input Username :" usrname
 echo "--------------------------------------------------------"
-echo "->] Masukkan User Password "
+echo "->] Input User Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
@@ -137,14 +137,14 @@ arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
 clear
 echo "--------------------------------------------------------"
-echo "->] Masukkan Root Password "
+echo "->] Input Root Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt passwd
 clear
 echo "--------------------------------------------------------"
-read -p "->] Masukkan Username :" usrname
+read -p "->] Input Username :" usrname
 echo "--------------------------------------------------------"
-echo "->] Masukkan User Password "
+echo "->] Input Username Password  "
 echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
@@ -170,14 +170,14 @@ arch-chroot /mnt mkinitcpio -p linux
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
 clear
 echo "--------------------------------------------------------"
-echo "->] Masukkan Root Password "
+echo "->] Input Root Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt passwd
 clear
 echo "--------------------------------------------------------"
-read -p "->] Masukkan Username :" usrname
+read -p "->] Input Username :" usrname
 echo "--------------------------------------------------------"
-echo "->] Masukkan User Password "
+echo "->] Input User Password "
 echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
