@@ -9,6 +9,7 @@ echo    "=] 1. Pulseaudio [Default Kebanyakan Distro]"
 echo    "=] 2. Pipewire [Audio Controller Modern]"
 echo    "--------------------------------------------------------"
 read -p "->] Pilih Audio Controller (1/2) : " audioc
+sh arch-install/extra-pkgs.sh
 sh arch-install/list-pkgs.sh
 case $audioc in
 1)
