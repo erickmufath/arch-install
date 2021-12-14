@@ -1,5 +1,4 @@
 yay -Syyu
-yay -S timeshift --needed
 yay -S rar --needed
 yay -S sndcpy --needed
 yay -S ventoy-bin --needed
