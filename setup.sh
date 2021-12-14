@@ -1,4 +1,6 @@
-sh arch-install/1-setup.sh
+clear
+chmod +x arch-install/*
+sh arch-install/base.sh
 echo    "--------------------------------------------------------"
 echo    "=== Membuat Restore Point"
 echo    "--------------------------------------------------------"
