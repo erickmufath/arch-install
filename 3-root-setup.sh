@@ -17,4 +17,4 @@ cp -rf arch-install/xorg.conf /etc/X11/
 echo    "--------------------------------------------------------"
 echo    "=== Membuat Restore Point"
 echo    "--------------------------------------------------------"
-timeshift --create --comments "Awal Install"
+timeshift --create --comments "Awal Install + Packages"
