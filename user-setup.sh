@@ -20,5 +20,5 @@ sh arch-install/pipewire.sh
 esac
 ;;
 echo    "--------------------------------------------------------"
-echo    "== SELESAI"
+echo    "== Langkah Terakhir Jalankan root-setup"
 echo    "--------------------------------------------------------"
