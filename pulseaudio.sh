@@ -1,1 +1,2 @@
-sudo pacman -S pulseaudio jack jack2 pavucontrol paman kmix pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack pulseaudio-lirc pulseaudio-zeroconf pamixer pulsemixer --noconfirm --needed
+sudo pacman -S pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack pulseaudio-lirc pulseaudio-zeroconf lsp-plugins pulsemixer
+flatpak install com.github.wwmm.pulseeffects
