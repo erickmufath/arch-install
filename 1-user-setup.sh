@@ -1,7 +1,3 @@
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 clear
 echo    "--------------------------------------------------------"
