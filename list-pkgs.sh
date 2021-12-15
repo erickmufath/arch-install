@@ -1,5 +1,6 @@
 yay -Syyu --noconfirm
 yay -S zramd --noconfirm --needed
+sed -i 's/^#MAX_SIZE/MAX_SIZE/' /etc/default/zramd
 yay -S rar --noconfirm --needed
 yay -S sndcpy --noconfirm --needed
 yay -S ventoy-bin --noconfirm --needed
