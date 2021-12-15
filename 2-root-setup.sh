@@ -1,7 +1,6 @@
 echo    "--------------------------------------------------------"
 echo -e "            Enabling Login Display Manager"
 sed -i 's/^# MAX_SIZE/MAX_SIZE/' /etc/default/zramd
-source arch-install/base.sh
 sed -i 's/^8192/${zramd}/' /etc/default/zramd
 systemctl enable sddm.service
 echo -e "\nSetup SDDM Theme"
