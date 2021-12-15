@@ -7,6 +7,7 @@ cat <<EOF > /etc/sddm.conf
 Current=Nordic
 EOF
 systemctl enable cups
+systemctl enable zramd
 systemctl enable ntpd.service
 systemctl disable dhcpcd.service
 systemctl stop dhcpcd.service
