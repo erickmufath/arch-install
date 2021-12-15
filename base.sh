@@ -67,7 +67,7 @@ arch-chroot /mnt systemctl enable NetworkManager
 echo "--------------------------------------------------------"
 echo "           Setup Bahasa, lokal, Hostname & Hosts        "
 echo "--------------------------------------------------------"
-sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+arch-chroot /mnt sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 arch-chroot /mnt locale-gen
 arch-chroot /mnt timedatectl --no-ask-password set-timezone Asia/Jakarta
 arch-chroot /mnt timedatectl --no-ask-password set-ntp 1
