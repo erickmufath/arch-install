@@ -163,4 +163,6 @@ arch-chroot /mnt passwd ${usrname}
 clear
 cp -rf arch-install /mnt/home/"${usrname}"
 ;;
+echo $usrname >> arch-install/install.conf
+echo $zramd >> arch-install/install.conf
 esac
