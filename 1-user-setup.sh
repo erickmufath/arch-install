@@ -15,7 +15,6 @@ sh arch-install/pulseaudio.sh
 sh arch-install/pipewire.sh
 ;;
 esac
-;;
 echo    "--------------------------------------------------------"
 echo    "== Langkah Terakhir Jalankan root-setup"
 echo    "--------------------------------------------------------"
