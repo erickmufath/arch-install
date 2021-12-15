@@ -2,7 +2,7 @@ clear
 chmod +x arch-install/*
 echo    "-]-]-]-]-]-]-]-]-]-]-] RUNNING BASE SETUP"
 sh arch-install/base.sh
-#source arch-install/base.sh
+source arch-install/base.sh
 arch-chroot /mnt /usr/bin/runuser -u $usrname -- arch-install/yay.sh
 arch-chroot /mnt yay -S timeshift --needed
 echo    "--------------------------------------------------------"
