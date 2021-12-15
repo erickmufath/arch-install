@@ -116,16 +116,7 @@ echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 clear
-echo "--------------------------------------------------------"
-echo "                  Reboot Ulang..."
-echo "                  Harap Copot Bootable Media..."
-echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." p
 cp -rf arch-install /mnt/home/"${usrname}"
-sleep 5
-rm -rf arch-install
-umount -R /mnt
-reboot
 ;;
 2)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
@@ -147,16 +138,7 @@ echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 clear
-echo "--------------------------------------------------------"
-echo "                  Reboot Ulang..."
-echo "                  Harap Copot Bootable Media..."
-echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." p
 cp -rf arch-install /mnt/home/"${usrname}"
-sleep 5
-rm -rf arch-install
-umount -R /mnt
-reboot
 ;;
 3)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
@@ -179,15 +161,6 @@ echo "--------------------------------------------------------"
 arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 clear
-echo "--------------------------------------------------------"
-echo "                  Reboot Ulang..."
-echo "                  Harap Copot Bootable Media..."
-echo "--------------------------------------------------------"
-read -p "========= ENTER UNTUK MELANJUTKAN....." p
 cp -rf arch-install /mnt/home/"${usrname}"
-sleep 5
-rm -rf arch-install
-umount -R /mnt
-reboot
 ;;
 esac
