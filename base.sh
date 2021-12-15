@@ -164,3 +164,4 @@ clear
 cp -rf arch-install /mnt/home/"${usrname}"
 ;;
 esac
+export usrname
