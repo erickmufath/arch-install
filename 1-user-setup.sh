@@ -1,6 +1,6 @@
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 clear
-source arch-install/install.conf
+source /home/$usrname/arch-install/install.conf
 echo    "--------------------------------------------------------"
 echo    "=] 1. Pulseaudio [X11/Wayland]"
 echo    "=] 2. Pipewire [Wayland]"
