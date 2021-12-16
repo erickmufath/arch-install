@@ -95,12 +95,7 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 arch-chroot /mnt -Syyu
-#Install and grub configuration
-case $boot in
-1)
-arch-chroot /mnt pacman -Sy grub os-prober --noconfirm
-arch-chroot /mnt grub-install --target=i386-pc /dev/"${drive}"
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+#user and grub configuration
 clear
 echo "--------------------------------------------------------"
 echo "->] Input Root Password "
@@ -116,6 +111,13 @@ arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 clear
 cp -rf arch-install /mnt/home/"${usrname}"
+echo "usrname=$usrname" >> arch-install/install.conf
+echo "zramd=$zramd" >> arch-install/install.conf
+case $boot in
+1)
+arch-chroot /mnt pacman -Sy grub os-prober --noconfirm
+arch-chroot /mnt grub-install --target=i386-pc /dev/"${drive}"
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 ;;
 2)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
@@ -123,21 +125,6 @@ arch-chroot /mnt mkdir boot
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
-clear
-echo "--------------------------------------------------------"
-echo "->] Input Root Password "
-echo "--------------------------------------------------------"
-arch-chroot /mnt passwd
-clear
-echo "--------------------------------------------------------"
-read -p "->] Input Username :" usrname
-echo "--------------------------------------------------------"
-echo "->] Input Username Password  "
-echo "--------------------------------------------------------"
-arch-chroot /mnt useradd -mG wheel ${usrname}
-arch-chroot /mnt passwd ${usrname}
-clear
-cp -rf arch-install /mnt/home/"${usrname}"
 ;;
 3)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
@@ -146,22 +133,5 @@ arch-chroot /mnt grub-install --target=i386-pc --boot-directory=/boot /dev/"${dr
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot --removable --recheck
 arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
 arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
-clear
-echo "--------------------------------------------------------"
-echo "->] Input Root Password "
-echo "--------------------------------------------------------"
-arch-chroot /mnt passwd
-clear
-echo "--------------------------------------------------------"
-read -p "->] Input Username :" usrname
-echo "--------------------------------------------------------"
-echo "->] Input User Password "
-echo "--------------------------------------------------------"
-arch-chroot /mnt useradd -mG wheel ${usrname}
-arch-chroot /mnt passwd ${usrname}
-clear
-cp -rf arch-install /mnt/home/"${usrname}"
 ;;
 esac
-echo "usrname=$usrname" >> arch-install/install.conf
-echo "zramd=$zramd" >> arch-install/install.conf
