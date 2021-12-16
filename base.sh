@@ -117,8 +117,8 @@ arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 clear
 cp -rf arch-install /mnt/home/"${usrname}"
-echo "usrname=$usrname" >> arch-install/install.conf
-echo "zramd=$zramd" >> arch-install/install.conf
+#echo "usrname=$usrname" >> arch-install/install.conf
+#echo "zramd=$zramd" >> arch-install/install.conf
 ;;
 2)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
@@ -141,8 +141,6 @@ arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 clear
 cp -rf arch-install /mnt/home/"${usrname}"
-echo "usrname=$usrname" >> arch-install/install.conf
-echo "zramd=$zramd" >> arch-install/install.conf
 ;;
 3)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
@@ -166,7 +164,6 @@ arch-chroot /mnt useradd -mG wheel ${usrname}
 arch-chroot /mnt passwd ${usrname}
 clear
 cp -rf arch-install /mnt/home/"${usrname}"
-echo "usrname=$usrname" >> arch-install/install.conf
-echo "zramd=$zramd" >> arch-install/install.conf
 ;;
 esac
+./1-user-setup.sh
