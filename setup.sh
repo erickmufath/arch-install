@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 clear
-pacman -Sy --noconfirm pacman-contrib curl --needed
-pacman -Sy --noconfirm reflector rsync terminus-font --needed
+pacman -Sy --noconfirm pacman-contrib curl reflector rsync terminus-font --needed
 setfont ter-v22b
 #iso=$(curl -4 ifconfig.co/country-iso)
 #timedatectl set-ntp true
@@ -171,8 +170,14 @@ echo    "=== Membuat Restore Point 1"
 echo    "--------------------------------------------------------"
 arch-chroot /mnt timeshift --create --comments "Awal Install [BASE INSTALL ONLY]"
 echo    "-]-]-]-]-]-]-]-]-]-]-] RUNNING USER SETUP"
+echo -e "==================================================="
+echo    "=            Menginstall User Setup...            ="
+echo -e "==================================================="
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- /home/$usrname/arch-install/1-user-setup.sh
 echo    "-]-]-]-]-]-]-]-]-]-]-] RUNNING ROOT SETUP"
+echo -e "==================================================="
+echo    "=            Menginstall Root Setup...            ="
+echo -e "==================================================="
 arch-chroot /mnt sh arch-install/2-root-setup.sh
 echo    "--------------------------------------------------------"
 echo    "=== Membuat Restore Point 2"
