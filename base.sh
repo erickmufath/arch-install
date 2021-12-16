@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 clear
-pacman -Sy --noconfirm pacman-contrib curl --needed
-pacman -Sy --noconfirm reflector rsync terminus-font --needed
+pacman -Sy --noconfirm pacman-contrib curl terminus-font --needed #reflector rsync
 setfont ter-v22b
 #iso=$(curl -4 ifconfig.co/country-iso)
 #timedatectl set-ntp true
@@ -61,7 +60,7 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
 pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager git
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt pacman -Sy pacman-contrib curl --noconfirm --needed
+arch-chroot /mnt pacman -Syyu
 #arch-chroot /mnt pacman -Sy reflector rsync ntp --noconfirm --needed
 #arch-chroot /mnt reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 arch-chroot /mnt systemctl enable NetworkManager
@@ -95,7 +94,7 @@ arch-chroot /mnt sed -i 's/^#Para/Para/' /etc/pacman.conf
 
 #Enable multilib
 arch-chroot /mnt sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
-
+arch-chroot /mnt -Syyu
 #Install and grub configuration
 case $boot in
 1)
