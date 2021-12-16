@@ -9,4 +9,3 @@ yay -S pipewire-zeroconf --noconfirm --needed
 yay -S lib32-pipewire --noconfirm --needed
 yay -S lib32-pipewire-jack --noconfirm --needed
 yay -S easyeffects --noconfirm --needed
-yay -S pulsemixer --noconfirm --needed
