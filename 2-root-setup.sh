@@ -17,3 +17,7 @@ systemctl enable NetworkManager.service
 systemctl enable bluetooth
 echo    "--------------------------------------------------------"
 cp -rf arch-install/xorg.conf /etc/X11/
+echo    "--------------------------------------------------------"
+echo    "=== Membuat Restore Point 2"
+echo    "--------------------------------------------------------"
+arch-chroot /mnt timeshift --create --comments "Awal Install [BASE INSTALL + PACKAGES & CONFIGURATION]"
