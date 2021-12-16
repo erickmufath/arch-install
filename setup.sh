@@ -2,12 +2,10 @@
 chmod +x arch-install/*
 sh arch-install/base.sh
 source arch-install/install.conf
-echo    "-]-]-]-]-]-]-]-]-]-]-] RUNNING USER SETUP"
 echo -e "==================================================="
 echo    "=            Menginstall User Setup...            ="
 echo -e "==================================================="
-arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/1-user-setup.sh
-echo    "-]-]-]-]-]-]-]-]-]-]-] RUNNING ROOT SETUP"
+arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- /home/$username/arch-install/1-user-setup.sh
 echo -e "==================================================="
 echo    "=            Menginstall Root Setup...            ="
 echo -e "==================================================="
