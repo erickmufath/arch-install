@@ -6,6 +6,8 @@ echo    "=] 1. Pulseaudio [X11/Wayland]"
 echo    "=] 2. Pipewire [Wayland]"
 echo    "--------------------------------------------------------"
 read -p "->] Pilih Audio Controller (1/2) : " audioc
+
+arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- yay.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/list-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
