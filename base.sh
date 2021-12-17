@@ -113,6 +113,7 @@ clear
 echo "usrname=$usrname" >> arch-install/install.conf
 echo "zramd=$zramd" >> arch-install/install.conf
 cp -rf arch-install /mnt/home/"${usrname}"
+cp -rf arch-install /mnt
 case $boot in
 1)
 arch-chroot /mnt pacman -Sy grub os-prober --noconfirm
