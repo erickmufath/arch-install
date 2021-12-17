@@ -1,3 +1,5 @@
+sudo pacman -Rnsc pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack pulseaudio-lirc pulseaudio-zeroconf lsp-plugins pulsemixer --noconfirm
+flatpak remove com.github.wwmm.pulseeffects
 yay -S pipewire --noconfirm --needed
 yay -S pipewire-alsa --noconfirm --needed
 yay -S pipewire-pulse --noconfirm --needed
