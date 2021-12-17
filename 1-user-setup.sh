@@ -1,4 +1,5 @@
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+read -p "Enter Untuk Melanjutkan... " go
 clear
 source arch-install/install.conf
 echo    "--------------------------------------------------------"
