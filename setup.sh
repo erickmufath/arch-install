@@ -4,8 +4,8 @@ sh arch-install/base.sh
 echo -e "==================================================="
 echo    "=            Menginstall User Setup...            ="
 echo -e "==================================================="
-arch-chroot /mnt sh arch-install/1-user-setup.sh
+sh arch-install/1-user-setup.sh
 echo -e "==================================================="
 echo    "=            Menginstall Root Setup...            ="
 echo -e "==================================================="
-arch-chroot /mnt sh arch-install/2-root-setup.sh
+sh arch-install/2-root-setup.sh
