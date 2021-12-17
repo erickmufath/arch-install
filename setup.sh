@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 chmod +x arch-install/*
 sh arch-install/base.sh
-source arch-install/install.conf
 echo -e "==================================================="
 echo    "=            Menginstall User Setup...            ="
 echo -e "==================================================="
