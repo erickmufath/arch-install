@@ -115,6 +115,7 @@ echo "usrname=$usrname" >> arch-install/install.conf
 echo "zramd=$zramd" >> arch-install/install.conf
 cp -rf arch-install /mnt/home/"${usrname}"
 cp -rf arch-install /mnt
+arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
 case $boot in
 1)
 arch-chroot /mnt pacman -Sy grub os-prober --noconfirm
@@ -126,7 +127,6 @@ arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
 arch-chroot /mnt mkdir boot
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
 ;;
 3)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
@@ -134,6 +134,5 @@ arch-chroot /mnt mkdir boot
 arch-chroot /mnt grub-install --target=i386-pc --boot-directory=/boot /dev/"${drive}"
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot --removable --recheck
 arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
-arch-chroot /mnt pacman -S xf86-video-intel xf86-video-amdgpu xf86-video-ati xf86-video-vesa --noconfirm
 ;;
 esac
