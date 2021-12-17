@@ -1,4 +1,5 @@
 rm -rf /mnt/arch-install
+source arch-install/install.conf
 echo    "--------------------------------------------------------"
 echo -e "            Enabling Login Display Manager"
 arch-chroot /mnt sed -i 's/^# MAX_SIZE/MAX_SIZE/' /etc/default/zramd
