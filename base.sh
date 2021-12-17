@@ -54,7 +54,8 @@ echo -e "==================================================="
 #script
 pacman -Sy sed --noconfirm --needed
 #Add parallel downloading
-sed -i 's/^#Para/Para/' /etc/pacman.conf
+#sed -i 's/^#Para/Para/' /etc/pacman.conf
+sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 2/' /etc/pacman.conf
 #Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
