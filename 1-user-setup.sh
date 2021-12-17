@@ -1,4 +1,3 @@
-arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 read -p "Enter Untuk Melanjutkan... " go
 clear
 source arch-install/install.conf
@@ -9,6 +8,7 @@ echo    "--------------------------------------------------------"
 read -p "->] Pilih Audio Controller (1/2) : " audioc
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/list-pkgs.sh
+arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 case $audioc in
 1)
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/pulseaudio.sh
