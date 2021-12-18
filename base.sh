@@ -10,9 +10,7 @@ echo -e "==================================================="
 echo    "=         Selamat Datang Di Scipt Saya            ="
 echo    "=     Hati-hati ketika menggunakan script         ="
 echo    "=  Tidak Bertanggung Jawab Atas Kehilangan Data   ="
-echo    "=                    Script Ini                   ="
-echo    "=       Ini akan mempartisi ulang drive           ="
-clear
+echo    "=    Atau Kerusakan Yang Disebabkan Script        ="
 echo "======================================================="
 echo "=] 1. BIOS/Legacy"
 echo "=] 2. UEFI [Beta Test]"
@@ -22,31 +20,6 @@ read -p ">> Pilih Jenis Boot (1) : " boot
 clear
 read -p "->] Input Nama Komputer Arch Linux (Contoh : pc atau acer) = " hstname
 read -p "->] Input Jumlah ZRAM (Contoh 8192) terhitung satuan Mega Byte = " zramd
-clear
-echo -e "==================================================="
-echo    "=             Pilih Drive/Target                  ="
-echo    "=               Bukan Partisi                     ="
-echo -e "==================================================="
-echo    "  "
-echo -e "==================================================="
-echo -e "  "
-lsblk
-echo -e "  "
-echo -e "==================================================="
-read -p "->] Pilih Drive (Contoh : sda atau nvmen1) = " drive
-read -p "=== Enter Untuk Melanjutkan...." a
-cfdisk /dev/"${drive}"
-clear
-echo -e "==================================================="
-echo -e "  "
-lsblk
-echo -e "  "
-echo -e "==================================================="
-read -p "->] Pilih Partisi (Contoh : sda1 atau nvmen1p4) = " prts
-read -p "=== Enter Untuk Melanjutkan...."
-mkfs.ext4 /dev/"${prts}"
-mount /dev/"${prts}" /mnt
-read -p "=== Enter Jika Tidak Terjadi Error...." he
 clear
 echo -e "==================================================="
 echo    "=           Menginstall Base System...            ="
