@@ -2,7 +2,7 @@ if pacman -Qqe | grep -E "pulseaudio|pulsemixer|pulseeffects"; then
     sudo pacman -Rnsc pulseaudio pulseaudio-alsa pulseaudio-bluetooth pulseaudio-equalizer pulseaudio-jack pulseaudio-lirc pulseaudio-zeroconf --noconfirm
 flatpak remove com.github.wwmm.pulseeffects
 fi
-sudo pacman -S lsp-plugins pulsemixer
+sudo pacman -S lsp-plugins pulsemixer --noconfirm --needed
 yay -S pipewire --noconfirm --needed
 yay -S pipewire-alsa --noconfirm --needed
 yay -S pipewire-pulse --noconfirm --needed
