@@ -33,6 +33,8 @@ sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 2/' /etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 #Pacstrap
 pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager git
+#Confirm Pacstrap Was Installed
+pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager git
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt pacman -Syyu
 #arch-chroot /mnt pacman -Sy reflector rsync ntp --noconfirm --needed
