@@ -8,8 +8,8 @@ echo    "--------------------------------------------------------"
 read -p "->] Pilih Audio Controller (1/2) : " audioc
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- /home/$usrname/arch-install/yay.sh
 arch-chroot /mnt timeshift --create --comments "Base Install Only"
-arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/list-pkgs.sh
+arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 case $audioc in
 1)
