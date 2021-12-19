@@ -99,7 +99,7 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 2)
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
 arch-chroot /mnt mkdir boot
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot
+arch-chroot /mnt grub-install --efi-directory=/boot
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 ;;
 3)
