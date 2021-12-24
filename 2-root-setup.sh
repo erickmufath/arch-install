@@ -23,4 +23,7 @@ cp -rf arch-install/xorg.conf /mnt/etc/X11/
 echo    "--------------------------------------------------------"
 echo    "=== Membuat Restore Point 2"
 echo    "--------------------------------------------------------"
+case $shi in
+y|Y|yes|Yes|YES)
 arch-chroot /mnt timeshift --create --comments "Awal Install [BASE INSTALL + PACKAGES & CONFIGURATION]"
+esac
