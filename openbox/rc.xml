@@ -191,13 +191,58 @@
 
 <keyboard>
   <chainQuitKey>C-g</chainQuitKey>
-
- <keybind key="W-r">
+###########################################################################################################################################################
+##Terminal
+    <keybind key="W-A-Return">
       <action name="Execute">
-        <command>rofi -show drun</command>
+        <command>xfce4-terminal</command>
       </action>
     </keybind>
-
+##volume-control
+<keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>amixer set Master 2%+</command>
+      </action>
+   </keybind>
+    <keybind key="XF86AudioLowerVolume">
+     <action name="Execute">
+        <command>amixer set Master 2%-</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>amixer set Master toggle</command>volumeicon installed, and I can change the volume by scrolling
+      </action>
+   </keybind>
+##launch rofi
+<keybind key="W-r">
+      <action name="Execute">
+	<command>rofi -show drun</command>
+      </action>
+    </keybind>
+##brightness control
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+	<command>brightnessctl s 2%+</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+	<command>brightnessctl s 2%-</command>
+      </action>
+    </keybind>
+##opera/chromium
+    <keybind key="W-o">
+      <action name="Execute">
+	<command>opera</command>
+      </action>
+    </keybind>
+    <keybind key="W-f">
+      <action name="Execute">
+	<command>firefox</command>
+      </action>
+    </keybind>
+###########################################################################################################################################################
 
   <!-- Keybindings for desktop switching -->
   <keybind key="C-A-Left">
