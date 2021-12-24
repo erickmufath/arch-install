@@ -5,6 +5,7 @@ echo -e "            Enabling Login Display Manager"
 arch-chroot /mnt sed -i 's/^# MAX_SIZE/MAX_SIZE/' /etc/default/zramd
 arch-chroot /mnt sed -i 's/^8192/${zramd}/' /etc/default/zramd
 arch-chroot /mnt systemctl enable sddm.service
+arch-chroot /mnt systemctl enable lightdm
 echo -e "\nSetup SDDM Theme"
 cat <<EOF > /mnt/etc/sddm.conf
 [Theme]
