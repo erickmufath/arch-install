@@ -11,8 +11,13 @@ echo    "=] 1. Openbox[X11 Only]"
 echo    "=] 2. Plasma [X11/Wayland]"
 echo    "--------------------------------------------------------"
 read -p "->] Pilih DE (1/2) : " disp
+read -p "->] Buat Restore Point Base System Only (y/n) : " rbase
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- /home/$usrname/arch-install/yay.sh
+case $rbase in
+y|Y|yes|Yes|YES)
 arch-chroot /mnt timeshift --create --comments "Base Install Only"
+;;
+esac
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/list-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
