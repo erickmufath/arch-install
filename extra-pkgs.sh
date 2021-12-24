@@ -28,4 +28,3 @@ yay -S aic94xx-firmware --noconfirm --needed
 yay -S wd719x-firmware --noconfirm --needed
 yay -S upd72020x-fw --noconfirm --needed
 yay -S nerd-fonts-source-code-pro --noconfirm --needed
-yay -S google-chrome --noconfirm --needed
