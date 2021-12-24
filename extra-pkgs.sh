@@ -17,3 +17,15 @@ elif lspci | grep -E "Radeon"; then
 elif lspci | grep -E "Integrated Graphics Controller"; then
     sudo pacman -S libva-intel-driver libvdpau-va-gl lib32-vulkan-intel vulkan-intel libva-intel-driver libva-utils lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader --needed --noconfirm
 fi
+yay -Syyu --noconfirm
+yay -S obs-studio-tytan652
+yay -S zramd  --noconfirm --needed
+yay -S rar --noconfirm --needed
+yay -S sndcpy --noconfirm --needed
+yay -S ventoy-bin --noconfirm --needed
+yay -S sddm-nordic-theme-git --noconfirm --needed
+yay -S aic94xx-firmware --noconfirm --needed
+yay -S wd719x-firmware --noconfirm --needed
+yay -S upd72020x-fw --noconfirm --needed
+yay -S nerd-fonts-source-code-pro --noconfirm --needed
+yay -S google-chrome --noconfirm --needed
