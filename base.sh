@@ -3,7 +3,7 @@ clear
 pacman -Sy --noconfirm pacman-contrib curl terminus-font --needed #reflector rsync
 setfont ter-v22b
 #iso=$(curl -4 ifconfig.co/country-iso)
-#timedatectl set-ntp true
+timedatectl set-ntp true
 #reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 clear
 echo -e "==================================================="
@@ -37,7 +37,7 @@ pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager 
 pacstrap /mnt base base-devel linux linux-firmware linux-headers networkmanager git
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt pacman -Syyu
-#arch-chroot /mnt pacman -Sy reflector rsync ntp --noconfirm --needed
+arch-chroot /mnt pacman -Sy reflector rsync ntp --noconfirm --needed
 #arch-chroot /mnt reflector -a 48 -c $iso -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 arch-chroot /mnt systemctl enable NetworkManager
 echo "--------------------------------------------------------"
@@ -105,6 +105,6 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 arch-chroot /mnt pacman -Sy grub efibootmgr os-prober --noconfirm
 arch-chroot /mnt grub-install --target=i386-pc --boot-directory=/boot /dev/"${drive}"
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --boot-directory=/boot --removable --recheck
-arch-chroot /mnt grub-mkconfig -o /mnt/boot/grub/grub.cfg
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 ;;
 esac
