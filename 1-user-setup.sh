@@ -12,6 +12,7 @@ echo    "=] 2. Plasma [X11/Wayland]"
 echo    "--------------------------------------------------------"
 read -p "->] Pilih DE (1/2) : " disp
 read -p "->] Buat Restore Point Base System Only (y/n) : " rbase
+read -p "->] Install Extra Packages? (y/n) : " xtra
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- /home/$usrname/arch-install/yay.sh
 case $rbase in
 y|Y|yes|Yes|YES)
@@ -19,7 +20,10 @@ arch-chroot /mnt timeshift --create --comments "Base Install Only"
 ;;
 esac
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/list-pkgs.sh
-#arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
+case $xtra in
+y|Y|yes|Yes|YES)
+arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
+esac
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 case $disp in
 1)
