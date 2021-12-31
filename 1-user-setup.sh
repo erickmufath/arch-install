@@ -19,7 +19,7 @@ arch-chroot /mnt timeshift --create --comments "Base Install Only"
 ;;
 esac
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/list-pkgs.sh
-arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
+#arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- arch-install/extra-pkgs.sh
 arch-chroot /mnt /usr/bin/runuser -u ${usrname} -- flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 case $disp in
 1)
