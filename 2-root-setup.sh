@@ -21,10 +21,10 @@ arch-chroot /mnt systemctl enable NetworkManager.service
 arch-chroot /mnt systemctl enable bluetooth
 arch-chroot /mnt echo    "--------------------------------------------------------"
 cp -rf arch-install/xorg.conf /mnt/etc/X11/
+case $shi in
+y|Y|yes|Yes|YES)
 echo    "--------------------------------------------------------"
 echo    "=== Membuat Restore Point 2"
 echo    "--------------------------------------------------------"
-case $shi in
-y|Y|yes|Yes|YES)
 arch-chroot /mnt timeshift --create --comments "Awal Install [BASE INSTALL + PACKAGES & CONFIGURATION]"
 esac
