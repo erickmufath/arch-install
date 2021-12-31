@@ -5,13 +5,16 @@ echo    "--------------------------------------------------------"
 echo -e "            Enabling Login Display Manager"
 arch-chroot /mnt sed -i 's/^# MAX_SIZE/MAX_SIZE/' /etc/default/zramd
 arch-chroot /mnt sed -i 's/^8192/${zramd}/' /etc/default/zramd
+if pacman -Qqe | grep -E "sddm"; then
 arch-chroot /mnt systemctl enable sddm.service
-arch-chroot /mnt systemctl enable lightdm
 echo -e "\nSetup SDDM Theme"
 cat <<EOF > /mnt/etc/sddm.conf
 [Theme]
 Current=Nordic
 EOF
+elif pacman -Qqe | grep -E "lightdm"; then
+arch-chroot /mnt systemctl enable lightdm
+fi
 arch-chroot /mnt systemctl enable cups
 arch-chroot /mnt systemctl enable zramd
 arch-chroot /mnt systemctl enable ntpd.service
