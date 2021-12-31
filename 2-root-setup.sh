@@ -1,4 +1,4 @@
-read -p "->] Buat Restore Point Awal Install" shi
+read -p "->] Buat Restore Point Awal Install (y/n) : " shi
 rm -rf /mnt/arch-install
 source arch-install/install.conf
 echo    "--------------------------------------------------------"
