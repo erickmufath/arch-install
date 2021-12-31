@@ -23,7 +23,6 @@ yay -S zramd  --noconfirm --needed
 yay -S rar --noconfirm --needed
 yay -S sndcpy --noconfirm --needed
 yay -S ventoy-bin --noconfirm --needed
-yay -S sddm-nordic-theme-git --noconfirm --needed
 yay -S aic94xx-firmware --noconfirm --needed
 yay -S wd719x-firmware --noconfirm --needed
 yay -S upd72020x-fw --noconfirm --needed
