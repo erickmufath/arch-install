@@ -1,1 +1,1 @@
-sudo pacman -S sddm plasma
+sudo pacman -S sddm plasma --noconfirm --needed
