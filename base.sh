@@ -20,6 +20,10 @@ read -p ">> Pilih Jenis Boot (1) : " boot
 clear
 read -p "->] Input Nama Komputer Arch Linux (Contoh : pc atau acer) = " hstname
 read -p "->] Input Jumlah ZRAM (Contoh 8192) terhitung satuan Mega Byte = " zramd
+if $boot="1" then
+lsblk
+read -p "->] Input Drive untuk install Bootloader (Contoh : sda) = " drive
+fi
 clear
 echo -e "==================================================="
 echo    "=           Menginstall Base System...            ="
